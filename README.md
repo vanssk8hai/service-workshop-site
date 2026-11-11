@@ -2,10 +2,11 @@
   <img src="images/project-banner.svg" alt="Мастерская — каждый ремонт на своём месте" width="1120">
 </p>
 
-<p align="center"><strong>Принимайте технику. Следите за ремонтом. Помните, что уже выдано.</strong></p>
+<p align="center"><strong>Каждый заказ — от приёма до выдачи. Всё в одном журнале.</strong></p>
 <p align="center">Программа учёта ремонта для небольшого сервиса — на компьютере и телефоне.</p>
 
 <p align="center">
+  <a href="https://vanssk8hai.github.io/service-workshop-site/"><strong>Открыть сайт</strong></a> ·
   <a href="docs/USER_GUIDE.md"><strong>Читать понятную инструкцию</strong></a> ·
   <a href="#как-выглядит-программа">Посмотреть скриншоты</a> ·
   <a href="index.html">Файлы лендинга</a>
