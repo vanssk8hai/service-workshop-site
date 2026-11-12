@@ -1,0 +1,727 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light"><title>Мастерская · Без интернета</title>
+<style>
+:root{--bg:#f4f5f2;--paper:#fff;--ink:#202c2a;--muted:#65726d;--line:#dfe5df;--green:#24624e;--red:#a33230;--soft:#edf4ef;font-family:Segoe UI,Arial,sans-serif;color:var(--ink);background:var(--bg);font-size:14px;line-height:1.45}*{box-sizing:border-box}body{margin:0}button,input,select,textarea{font:inherit}button{cursor:pointer;border:1px solid var(--line);border-radius:8px;padding:9px 13px;color:var(--ink);background:white;font-weight:600}button:hover{background:#eef3ee}button:disabled{cursor:wait;opacity:.55}.primary{background:var(--green);border-color:var(--green);color:white}.primary:hover{background:#174b3a}.danger{color:var(--red)}:focus-visible{outline:3px solid #e4aa49;outline-offset:2px}header{background:#fff;border-bottom:1px solid var(--line);padding:20px 28px;display:flex;align-items:center;gap:20px}.brand{display:flex;align-items:center;gap:12px;margin-right:auto}.mark{width:42px;height:42px;background:var(--green);color:white;display:grid;place-items:center;border-radius:11px;font-size:24px;font-weight:700}h1{font-size:21px;line-height:1.2;margin:0}h2{font-size:20px;margin:0}.sub{font-size:12px;color:var(--muted);margin-top:4px}.head-actions{display:flex;gap:8px;flex-wrap:wrap}main{max-width:1600px;padding:24px 28px 40px;margin:auto}.overview{display:flex;align-items:end;justify-content:space-between;margin-bottom:16px}.eyebrow{text-transform:uppercase;letter-spacing:1.7px;font-size:11px;font-weight:700;color:var(--green);margin-bottom:4px}#today{color:var(--muted);font-size:13px}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:24px}.stat{padding:15px 18px;background:white;border:1px solid var(--line);border-radius:10px;text-align:left;display:flex;align-items:center;gap:12px;justify-content:space-between}.stat strong{font-size:28px;font-weight:650}.stat span{font-weight:500;color:var(--muted)}.stat.alert strong{color:var(--red)}.stat.active{border-color:var(--green);box-shadow:none}.panel{background:white;border:1px solid var(--line);border-radius:12px;overflow:hidden}.toolbar{display:flex;gap:12px;flex-wrap:wrap;padding:18px 18px 12px;align-items:center}.search{position:relative;flex:1;min-width:240px}.search input{padding-left:35px;margin:0;background:#f7f8f6}.search span{position:absolute;left:12px;top:8px;color:var(--muted);font-size:19px}.check{display:flex;gap:7px;align-items:center;color:var(--muted);font-size:13px}.check input{width:auto;margin:0;accent-color:var(--green)}input,textarea,select{width:100%;background:white;border:1px solid #cdd6cf;border-radius:7px;padding:9px 10px;color:var(--ink);margin-top:5px}textarea{resize:vertical;min-height:76px}select{cursor:pointer}#sort{width:auto;margin:0;max-width:240px}.tabs{display:flex;gap:5px;overflow-x:auto;padding:0 18px 12px}.tabs button{white-space:nowrap;background:none;border-color:transparent;font-weight:500;padding:7px 10px}.tabs button.on{background:var(--soft);color:var(--green);font-weight:700;border-color:#cdded0}.tabs i{font-style:normal;background:#f0f2ef;border-radius:5px;padding:1px 5px;margin-left:5px;font-size:11px;color:var(--muted)}.tabs .on i{background:#dce9dd;color:var(--green)}.result-note{display:flex;justify-content:space-between;gap:12px;padding:10px 18px;border-top:1px solid var(--line);font-size:12px;color:var(--muted);background:#fafbf9}.table-wrap{overflow:auto}table{width:100%;border-collapse:collapse;text-align:left}th{background:#f7f8f5;color:var(--muted);font-size:11px;font-weight:600;letter-spacing:.6px;text-transform:uppercase;padding:11px 14px;white-space:nowrap}td{padding:13px 14px;border-top:1px solid #e9ede7;vertical-align:top;font-size:13px}tbody tr:hover{background:#f7faf7}td.model{min-width:190px;max-width:290px}td.problem{max-width:310px;min-width:150px}td.client{min-width:155px}.muted{color:var(--muted);font-size:12px}.model strong{font-weight:650}.status{display:inline-block;border-radius:5px;font-size:11px;font-weight:650;padding:3px 7px;white-space:nowrap;background:#edf0ee;color:#56635c}.status[data-s="Р"]{background:#edf2ef;color:#315e49}.status[data-s="Г"]{background:#e9f2d6;color:#4f6825}.status[data-s="В"]{background:#f0f1f0;color:#677169}.status[data-s="О"]{background:#fff0d6;color:#8a5915}.status[data-s="С"]{background:#e8effb;color:#3d6093}.status[data-s="Б"]{background:#f0eafa;color:#725791}.urgent{font-size:11px;font-weight:750;text-transform:uppercase;letter-spacing:.5px;color:var(--red);margin-top:6px}.late{color:var(--red);font-weight:600}.num{font-variant-numeric:tabular-nums}.amount{text-align:right;white-space:nowrap;font-weight:650}.order-link{padding:0;border:0;color:var(--green);background:none;font-size:13px}.order-link:hover{background:none;text-decoration:underline}.empty{text-align:center;padding:48px 20px;color:var(--muted)}#more{text-align:center;padding:14px}#storage{margin-top:16px;color:var(--muted);font-size:12px}.warning{background:#fff5df;color:#73521b;border:1px solid #ebd4a6;padding:12px 16px;border-radius:8px;margin-bottom:16px;font-size:13px}.error{background:#fff0ed;color:#8b2929;border:1px solid #e6b7b1;padding:12px;border-radius:8px;white-space:pre-wrap}#notice:empty,#error:empty{display:none}footer{color:var(--muted);font-size:12px;margin-top:8px}dialog{padding:0;border:1px solid var(--line);border-radius:14px;max-width:960px;width:calc(100% - 32px);max-height:92vh;color:var(--ink);box-shadow:0 25px 90px #142b2940}dialog::backdrop{background:#142b2970;backdrop-filter:blur(2px)}.dialog-head{display:flex;align-items:center;gap:12px;padding:20px 24px;border-bottom:1px solid var(--line);position:sticky;top:0;background:white;z-index:2}.dialog-head h2{margin-right:auto}.close{font-size:20px;font-weight:400;padding:2px 10px}.dialog-body{padding:20px 24px}.dates{font-size:12px;color:var(--muted);margin-bottom:16px}.columns{display:grid;grid-template-columns:1fr 1fr;gap:22px}.section{border:1px solid var(--line);border-radius:10px;padding:16px;margin-bottom:14px}.section h3{font-size:13px;font-weight:700;margin:0 0 14px;color:var(--green)}.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.full{grid-column:1/-1}label{font-size:12px;font-weight:500;color:#53615a}.kit{display:flex;flex-wrap:wrap;gap:8px;margin-top:9px}.kit button{font-size:11px;padding:4px 7px;font-weight:500}.kit button.picked{background:var(--soft);border-color:#b9d0bd;color:var(--green)}.totals{padding:15px;background:var(--soft);border-radius:8px;display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}.totals strong{font-size:25px}.dialog-actions{padding:14px 24px;display:flex;gap:8px;align-items:center;flex-wrap:wrap;border-top:1px solid var(--line);background:#fafbf9;position:sticky;bottom:0;z-index:2}.spacer{flex:1}.inline-error{margin-bottom:14px}.help{font-size:12px;color:var(--muted);line-height:1.6}.backup-options{display:grid;gap:10px;margin:18px 0}.backup-options button{text-align:left;padding:14px}.backup-options button small{display:block;font-weight:400;color:var(--muted);margin-top:4px}.history{font-size:12px;color:var(--muted)}.history p{margin:7px 0}#toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);background:#223d31;color:#fff;padding:12px 20px;border-radius:9px;box-shadow:0 5px 24px #0002;z-index:20;max-width:90vw}.hidden{display:none!important}#print-area{display:none}a{color:var(--green)}
+@media(min-width:1450px){td{padding-top:15px;padding-bottom:15px}}
+@media(max-width:850px){header{padding:16px;flex-wrap:wrap}.head-actions{width:100%}.head-actions .primary{margin-left:auto}main{padding:20px 14px}.stats{gap:7px}.stat{padding:12px;display:block}.stat strong{display:block;font-size:24px}.stat span{font-size:12px}.columns{grid-template-columns:1fr;gap:0}.dialog-body{padding:16px}.dialog-head{padding:16px}.dialog-actions{padding:12px 16px}.date-col{display:none}}
+@media(max-width:520px){h1{font-size:19px}.overview{align-items:start}#today{max-width:110px;text-align:right}.stats{grid-template-columns:1fr 1fr;margin-bottom:16px}.stat{display:flex;align-items:center}.stat strong{font-size:24px}.toolbar{padding:12px}.search{min-width:100%;flex-basis:100%}#sort{flex:1;max-width:none;font-size:12px}.tabs{padding:0 8px 10px}.grid{grid-template-columns:1fr}.full{grid-column:1}dialog{width:calc(100% - 14px);max-height:96vh}.dialog-head h2{font-size:18px}.result-note{padding:10px 12px}.dialog-actions button{padding:9px 10px}.problem{display:none}.head-actions button{font-size:12px}.amount{min-width:100px}}
+@media print{body>*{display:none!important}body>#print-area{display:block!important;color:black;background:white;font:12pt/1.4 Arial,sans-serif}#print-area h1{font-size:21pt;margin-bottom:5mm}#print-area h2{font-size:15pt;margin:5mm 0}#print-area table{margin:6mm 0}#print-area td,#print-area th{border:1px solid #999;padding:3mm;font-size:10pt;color:black}#print-area .print-grid{display:grid;grid-template-columns:1fr 1fr;gap:4mm}#print-area .signature{margin-top:15mm;display:flex;justify-content:space-between;font-size:10pt}#print-area p{white-space:pre-wrap}#print-area .print-note{font-size:9pt;color:#444}@page{size:A4;margin:15mm}}
+.dates{display:flex;flex-wrap:wrap;gap:10px 24px;padding:12px 14px;background:#f4f7f3;border-radius:8px}.dates span{display:block;font-size:11px;color:var(--muted);margin-bottom:3px}.dates strong{font-size:13px;font-weight:600;color:var(--ink)}td.date-col{white-space:nowrap}td.model{min-width:170px;max-width:245px}td.problem{min-width:140px;max-width:230px}td.client{min-width:135px}td{padding-left:11px;padding-right:11px}
+/* Keep the working form compact enough for a workshop desktop. */
+.dialog-body input,.dialog-body select,.dialog-body textarea{padding:6px 8px;font-size:13px;margin-top:4px}.dialog-body textarea{min-height:54px}.dialog-body .section{padding:12px;margin-bottom:10px}.dialog-body .section h3{margin-bottom:8px}.dialog-body .grid{gap:8px}.dialog-body .totals{padding:12px;margin-bottom:10px}.dialog-body .totals strong{font-size:23px}.dialog-body{padding:16px 22px}.dialog-head{padding:16px 22px}.dialog-actions{padding:12px 22px}.dialog-body .kit{gap:5px;margin-top:0}.dialog-body .dates{margin-bottom:12px}tbody td{padding-top:8px;padding-bottom:8px}header{padding-top:16px;padding-bottom:16px}.stats{margin-bottom:18px}.stat{padding:12px 16px}.overview{margin-bottom:12px}main{padding-top:18px}.toolbar{padding-top:14px}
+@media(max-width:520px){.dialog-body{padding:12px}.dialog-head{padding:12px}.dialog-actions{padding:10px 12px}.dialog-body input,.dialog-body select,.dialog-body textarea{font-size:16px}.stat{padding:10px}.dates{gap:8px 14px}}
+
+.settings-dialog{width:min(680px,calc(100% - 24px))}
+.settings-tabs{display:flex;gap:4px;padding:10px 16px;border-bottom:1px solid #bac9bf;flex-wrap:wrap}
+.settings-tabs [aria-selected="true"]{background:#dcebdc;border-color:#63816f;color:#234c38}
+.settings-dialog .dialog-body{min-height:240px;padding:16px 20px}
+.settings-master{display:flex;align-items:end;gap:8px;margin-bottom:10px}
+.settings-master label{flex:1}.settings-master.retired{background:#f1f2ef;padding:6px;border-radius:5px}
+.settings-master.retired input{color:#65726d}.settings-check{margin-top:20px}
+.settings-dialog [hidden]{display:none}
+body.plain-rows #tb tr[data-status]{--row-bg:#fff}
+header .brand{min-width:0}header h1,header .sub{overflow-wrap:anywhere}
+@media(max-width:650px){header{flex-wrap:wrap}.head-actions{width:100%}}
+.client-section{position:relative}
+.client-suggestions{position:absolute;top:calc(100% - 3px);left:0;right:0;z-index:5;background:#fff;border:2px solid #557566;border-radius:7px;box-shadow:0 8px 22px #183b2933;padding:5px}
+.client-suggestions[hidden]{display:none}
+.client-suggestions-title,.client-suggestions-more{font-size:11px;color:#52615b;padding:4px 7px}
+#client-options{max-height:min(280px,42vh);overflow:auto}
+#client-options button{display:block;width:100%;text-align:left;border:0;border-radius:3px;padding:8px;font-size:13px;font-weight:400;border-top:1px solid #dfe5df}
+#client-options button>span{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+#client-options small{display:block;color:#52615b;overflow-wrap:anywhere;margin-top:2px}
+#client-options .client-phone{white-space:nowrap;font-variant-numeric:tabular-nums}
+#client-options button:hover,#client-options button.selected{background:#e3efdf;outline:1px solid #7e9a79;outline-offset:-1px}
+/* Status colours fill the entire order row; text labels remain visible. */
+#tb tr[data-status]{background:var(--row-bg,#fff)}
+#tb tr[data-status="Р"]{--row-bg:#fff}
+#tb tr[data-status="Г"]{--row-bg:#e5f3ba}
+#tb tr[data-status="В"]{--row-bg:#c9ebcf}
+#tb tr[data-status="С"]{--row-bg:#dceafa}
+#tb tr[data-status="О"]{--row-bg:#fff0c2}
+#tb tr[data-status="Б"]{--row-bg:#eee1f4}
+#tb tr[data-status] td{background:inherit;border-top-color:#cbd6ce}
+#tb tr[data-status]:hover td{background-image:linear-gradient(#173e2b08,#173e2b08)}
+#tb tr[data-status] .muted{color:#52615b}
+/* Compact order journal: one status bar, two attention filters. */
+@media screen {
+header{padding:12px 20px;gap:12px}.mark{width:36px;height:36px;font-size:21px}.brand{gap:10px}h1{font-size:20px}.sub{margin-top:2px;font-size:11px}.head-actions button{padding:7px 11px}
+main{padding:14px 20px 28px}.overview{align-items:center;gap:12px;margin-bottom:10px}.overview h2{font-size:18px}#today{font-variant-numeric:tabular-nums;text-align:right}
+.stats{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:12px}.stat{display:inline-flex;justify-content:flex-start;align-items:center;gap:8px;padding:5px 10px;border-radius:7px}.stat span{font-size:12px}.stat strong{display:inline;font-size:13px}.stat.active{box-shadow:none;background:var(--soft)}
+.toolbar{padding:10px 12px 8px;gap:10px}.toolbar input,.toolbar select{padding-top:7px;padding-bottom:7px}.search span{top:6px}.tabs{gap:2px;padding:0 8px 8px}.tabs button{padding:5px 7px;font-size:12px}.tabs i{margin-left:4px;padding:1px 4px}
+.result-note{padding:6px 12px;font-size:11px}.table-wrap th{padding:8px 10px;font-size:11px}.table-wrap td{padding:6px 10px}.table-wrap td.num{white-space:nowrap}.table-wrap .muted{font-size:11px}.table-wrap .status{padding:1px 5px;font-size:11px}.table-wrap td.model{min-width:160px}.table-wrap td.problem{min-width:125px}.table-wrap td.client{min-width:125px}
+.dialog-head{padding:12px 16px}.dialog-body{padding:12px 16px}.dialog-actions{padding:10px 16px}.columns{gap:14px}.dialog-body .section{padding:10px;margin-bottom:8px}.dialog-body .grid{gap:7px}.dialog-body .dates{padding:9px 11px}
+}
+@media screen and (max-width:520px){header{padding:12px}main{padding:12px}.overview{align-items:start}.overview h2{font-size:16px}#today{max-width:155px;font-size:12px}.toolbar{gap:8px}.dialog-body{padding:10px}.dialog-head{padding:12px}.dialog-actions{padding:10px}.tabs button{padding:6px 7px}.stat{min-height:32px}}
+
+/* Full-workspace order card. Archived hidden fields are preserved in the record. */
+@media screen {
+dialog.order-dialog{width:calc(100vw - 16px);max-width:none;height:calc(100dvh - 16px);max-height:calc(100dvh - 16px);margin:auto;border-radius:10px}
+dialog.order-dialog[open]{display:flex;flex-direction:column}
+.order-dialog .dialog-head{position:relative;flex:none;padding:8px 14px;gap:12px}.order-dialog .dialog-head .eyebrow{display:none}.order-dialog .dialog-head h2{font-size:19px}
+.order-dialog #order-form{display:flex;flex-direction:column;flex:1;min-height:0}.order-dialog .dialog-body{flex:1;min-height:0;overflow:auto;padding:10px 14px}.order-dialog .dialog-actions{position:relative;flex:none;padding:8px 14px}.order-dialog .dialog-actions button{padding:7px 12px}
+.order-dialog .columns{grid-template-columns:1fr 1fr;gap:14px}.order-dialog .columns>div{min-width:0}.order-dialog .section{padding:9px 10px;margin-bottom:8px}.order-dialog .section h3{font-size:12px;margin-bottom:6px}.order-dialog .grid{gap:7px 10px}
+.order-dialog input,.order-dialog select,.order-dialog textarea{margin-top:3px;padding:5px 7px;font-size:13px;min-width:0}.order-dialog label{font-size:11px;min-width:0}.order-dialog textarea{height:clamp(48px,10vh,120px);min-height:48px;resize:vertical}.order-dialog .client-grid{grid-template-columns:1fr 1fr 1fr}
+.order-dialog .device-grid>label:has(#fi),.order-dialog .device-grid>label:has(#fp){grid-column:auto}.order-dialog .kit{flex-wrap:nowrap;overflow-x:auto;gap:4px;padding-bottom:3px}.order-dialog .kit button{flex:none;font-size:11px;padding:3px 5px}
+.order-dialog .work-grid{grid-template-columns:minmax(0,1fr) 120px;align-items:start}.order-dialog .work-grid>label{grid-column:auto}.order-dialog .executor-grid{grid-template-columns:1fr 1fr 1fr}.order-dialog .executor-grid>label:has(#fmp){grid-column:1/-1}
+.order-dialog .totals{margin-bottom:8px;padding:9px 12px}.order-dialog .totals strong{font-size:22px}.order-dialog .dates{padding:7px 10px;margin-bottom:8px;gap:8px 24px}.order-dialog .dates strong{font-size:12px}.order-dialog .dates span{font-size:11px;margin-bottom:1px}
+.order-dialog .card-urgent{white-space:nowrap;font-size:12px}.order-dialog .card-urgent input{width:auto;margin:0}.order-dialog .warning{padding:6px 10px;margin-bottom:8px;font-size:11px}.order-dialog .history{font-size:11px}.order-dialog .history[open]{max-height:160px;overflow:auto}
+}
+@media screen and (min-width:760px) and (max-height:700px){.order-dialog textarea{height:44px;min-height:44px}.order-dialog .dialog-body{padding:8px 12px}.order-dialog .grid{gap:5px 8px}.order-dialog .section{padding:7px 9px;margin-bottom:6px}.order-dialog .totals{padding:6px 10px;margin-bottom:6px}.order-dialog .totals strong{font-size:20px}.order-dialog .section h3{margin-bottom:4px}}
+@media screen and (max-width:759px){.order-dialog .columns{grid-template-columns:1fr}.order-dialog .client-grid{grid-template-columns:1fr 1fr}.order-dialog .client-grid>label:has(#fa){grid-column:1/-1}.order-dialog .executor-grid{grid-template-columns:1fr 1fr}.order-dialog .executor-grid>label:has(#fs){grid-column:1/-1}.order-dialog input,.order-dialog select,.order-dialog textarea{font-size:16px}.order-dialog .dialog-head{gap:8px}.order-dialog .dialog-head h2{font-size:16px}.order-dialog .dialog-head .status{display:none}.order-dialog .work-grid{grid-template-columns:minmax(0,1fr) 100px}}
+@media screen{.order-dialog .dialog-actions .history{position:relative;flex:none;font-size:12px}.order-dialog .dialog-actions .history[open]{max-height:none;overflow:visible}.order-dialog .history summary{cursor:pointer;padding:7px 10px;border:1px solid var(--line);border-radius:7px;background:white}.order-dialog .history-list{position:absolute;bottom:calc(100% + 10px);left:0;width:min(460px,75vw);max-height:min(300px,50vh);overflow:auto;padding:12px 16px;background:white;border:1px solid var(--line);border-radius:9px;box-shadow:0 8px 30px #142b2930}.order-dialog .history-list p{padding-bottom:8px;border-bottom:1px solid var(--line)}}
+@media screen{.order-dialog #ready{background:#e9f2d6;border-color:#d2e0b6;color:#4f6825}.order-dialog #ready:disabled{cursor:default}}
+@media screen {
+ dialog.order-dialog{border:2px solid #72857b;background:#e7ece8;border-radius:7px}
+ .order-dialog .dialog-head,.order-dialog .dialog-actions{background:#e1e8e3;border-color:#83958a}
+ .order-dialog .dialog-body{background:#eef1ed;padding:8px 12px}
+ .order-dialog .section{border:1px solid #92a198;border-radius:5px;padding:7px 9px;margin-bottom:6px;background:#f3f5f1}
+ .order-dialog .columns>div:first-child>.section:first-child{background:#e7f0e2;border-color:#91a489}
+ .order-dialog .columns>div:first-child>.section:nth-child(2){background:#f6efd9;border-color:#b1a47c}
+ .order-dialog .columns>div:nth-child(2)>.section:first-child{background:#e6edf4;border-color:#8c9fb1}
+ .order-dialog .columns>div:nth-child(2)>.section:last-child{background:#eee9f3;border-color:#a195ad}
+ .order-dialog .section h3{font-size:12px;color:#293b31;margin-bottom:6px;padding-bottom:4px;border-bottom:1px solid #a5b1a4}
+ .order-dialog label{color:#25382e;font-weight:600;font-size:12px}
+ .order-dialog input,.order-dialog textarea,.order-dialog select{border:1px solid #7c8e83;border-top-color:#677a6e;border-radius:3px;background:#fffef9;box-shadow:inset 0 1px 2px #1833260d;padding:4px 6px}
+ .order-dialog input:focus,.order-dialog textarea:focus,.order-dialog select:focus{outline:2px solid #3b7661;outline-offset:1px;background:#fff}
+ .order-dialog .card-urgent input{box-shadow:none;accent-color:#24624e}
+ .order-dialog .dates{border:1px solid #9eada2;background:#f8faf6;border-radius:4px;padding:6px 9px;margin-bottom:6px}
+ .order-dialog .dates span{color:#4d6055}.order-dialog .dates strong{color:#22352b}
+ .order-dialog .totals{border:1px solid #879d8c;border-radius:4px;background:#dce9dc;padding:7px 10px;margin-bottom:6px}
+ .order-dialog .kit button{border-color:#9ca895;border-radius:3px;background:#fffef8}.order-dialog .kit button.picked{border-color:#456d50;background:#d5e6cd;color:#25472e}
+ .order-dialog .dialog-actions button{border-radius:4px;border-color:#8a9d91}.order-dialog .dialog-actions .primary{border-color:#245c48}
+ .order-dialog .close{border-color:#8a9d91;border-radius:4px}
+}
+@media print {
+ @page{size:A4;margin:13mm 14mm}
+ html,body{background:#fff!important;color:#111!important}
+ body>#print-area{font:10pt/1.35 Arial,sans-serif!important}
+ #print-area .work-act{width:100%;max-width:none;color:#111}
+ #print-area .act-brand{font-size:9pt;color:#555;margin-bottom:3mm}
+ #print-area .receipt-collection{border:1pt solid #777;padding:2.5mm 3mm;margin-top:4mm;font-size:9pt;line-height:1.4}
+ #print-area .receipt-collection h2{font-size:10pt;margin:0 0 2mm}
+ #print-area h1{font-size:17pt;line-height:1.15;margin:0 0 3mm;letter-spacing:.3pt}
+ #print-area .act-meta{display:flex;justify-content:space-between;gap:6mm;border-bottom:1.5pt solid #222;padding-bottom:3mm;margin-bottom:4mm;font-size:10pt}
+ #print-area .act-draft{border:1pt solid #777;background:#f5f5f5;padding:2mm 3mm;margin:0 0 3mm;font-size:9pt}
+ #print-area p{margin:1.5mm 0;white-space:pre-wrap;overflow-wrap:anywhere;orphans:3;widows:3}
+ #print-area h2{font-size:10.5pt;margin:4mm 0 2mm;break-after:avoid}
+ #print-area .act-parties,#print-area .act-device{margin-bottom:3mm}
+ #print-area .act-table{width:100%;table-layout:fixed;border-collapse:collapse;margin:2mm 0 0}
+ #print-area .act-table th,#print-area .act-table td{border:1pt solid #777;padding:2.5mm;font-size:10pt;letter-spacing:normal;text-transform:none;color:#111;vertical-align:top;overflow-wrap:anywhere}
+ #print-area .act-table th{background:#eee;font-weight:700;position:static}
+ #print-area .act-table thead{display:table-header-group}
+ #print-area .act-description{white-space:pre-wrap;overflow-wrap:anywhere;margin-top:1mm}
+ #print-area .act-amount{text-align:right;white-space:nowrap}
+ #print-area .act-total{display:flex;justify-content:space-between;gap:6mm;padding:3mm 0;border-bottom:1pt solid #777;break-inside:avoid;font-size:11pt}
+ #print-area .act-dates{display:flex;flex-wrap:wrap;gap:1.5mm 5mm;margin:3mm 0;color:#444;font-size:8.5pt}
+ #print-area .act-acceptance{break-inside:avoid;margin-top:4mm}
+ #print-area .act-rule{height:6mm;border-bottom:.6pt solid #888}
+ #print-area .act-signatures{display:grid;grid-template-columns:1fr 1fr;gap:15mm;margin-top:5mm}
+ #print-area .act-sign-line{height:8mm;border-bottom:.7pt solid #333;margin-bottom:1.5mm}
+ #print-area .act-signatures span{font-size:8pt;color:#555}
+ #print-area .act-signatures p{font-size:9pt;margin-top:2mm}
+ #print-area .act-footnote{margin-top:5mm;font-size:8pt;color:#555}
+}
+
+@media screen and (min-width:760px) and (max-height:700px){.order-dialog .section h3{padding-bottom:2px;margin-bottom:3px}.order-dialog .section{margin-bottom:4px}.order-dialog .dialog-body{padding-top:6px;padding-bottom:6px}}
+
+body.auth-locked>header,body.auth-locked>main,body.auth-locked>#dlg,body.auth-locked>#print-area{display:none!important}
+#auth-panel{display:none;padding:32px 16px;min-height:100vh;background:#f4f5f2}
+body.auth-locked #auth-panel{display:block}.auth-card{max-width:540px;margin:2vh auto;padding:28px;background:white;border:1px solid var(--line);border-radius:14px;box-shadow:0 8px 40px #142b2910}.auth-card h1{margin:18px 0 10px}.auth-card label:not(.check){display:block;margin-top:12px}.auth-card .error[hidden]{display:none}.recovery-code{display:block;overflow-wrap:anywhere;font:18px/1.8 monospace;background:var(--soft);padding:16px;margin:16px 0;border-radius:8px;user-select:all}
+#access-revoked{position:fixed;inset:0;background:#142b29b0;z-index:100;padding:24px;overflow:auto}#access-revoked[hidden]{display:none}body.access-revoked>header,body.access-revoked>main,body.access-revoked>#dlg{visibility:hidden}.access-note{padding:10px 18px;background:var(--soft);color:var(--green);font-size:12px}
+
+#export-html{display:none}.conflict-json{max-height:300px;overflow:auto;white-space:pre-wrap;font:12px/1.5 monospace;background:#f4f5f2;padding:10px;border-radius:8px}.head-actions{align-items:center}
+
+
+[hidden]{display:none!important}
+header{position:relative;padding:12px 20px;gap:10px}
+.head-actions{display:flex;gap:8px;align-items:center;flex-wrap:nowrap;width:auto}.head-actions .sm{display:none}
+.sync::before{content:"●";font-size:12px;margin-right:6px;color:#2f9e63}.sync[data-st=busy]::before{color:#d9a31b}.sync[data-st=off]::before{color:#d9822b}.sync[data-st=bad]::before{color:#c0392b}
+#attention b{background:#a33230;color:#fff;border-radius:9px;padding:0 6px;font-size:11px;margin-left:4px}#attention b:empty{display:none}
+#menu-btn{font-size:20px;line-height:1;padding:6px 12px}
+#menu{position:absolute;right:16px;top:100%;z-index:30;background:#fff;border:1px solid var(--line);border-radius:10px;box-shadow:0 12px 40px #14201c33;padding:6px;display:flex;flex-direction:column;min-width:220px}
+#menu button{border:0;text-align:left;background:none;font-weight:500;padding:11px 12px}#menu button:hover{background:var(--soft)}
+.stats{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}.stat{padding:6px 14px;border-radius:999px;gap:8px}.stat strong{font-size:16px}
+.stat[data-filter=repair],.stat[data-filter=ready]{display:none!important}
+.overview{margin-bottom:8px}.overview h2{font-size:17px}.eyebrow{display:none}
+#tb tr{cursor:pointer}.search input{font-size:16px}
+@media screen and (max-width:700px){
+header{padding:10px 12px;flex-wrap:wrap}.brand{min-width:0}.brand .sub{display:none}h1{font-size:17px}.mark{width:34px;height:34px;font-size:19px}
+.head-actions{gap:6px;width:100%;justify-content:flex-end}.head-actions .lg{display:none}.head-actions .sm{display:inline}.head-actions button{padding:8px 10px}#menu{right:8px}
+main{padding:10px 8px 24px}.panel{overflow:visible}.toolbar{position:sticky;top:0;z-index:4;background:#fff;border-radius:12px 12px 0 0;padding:10px}
+.result-note span:last-child{display:none}.panel>.table-wrap{overflow:visible}
+#orders-table,#tb{display:block}#orders-table thead{display:none}
+#tb tr{display:grid;grid-template-columns:1fr auto;gap:3px 10px;padding:12px 14px;border-top:1px solid #e9ede7}
+#tb tr td{display:block;padding:0;border:0;min-width:0;max-width:none}
+#tb tr td:nth-child(1){grid-column:1;grid-row:1;display:flex;align-items:center;gap:8px;flex-wrap:wrap}#tb tr td:nth-child(1)>div{margin:0!important}
+#tb tr td:nth-child(9){grid-column:2;grid-row:1;font-size:15px}
+#tb tr td:nth-child(5){grid-column:1/-1;grid-row:2;font-size:15px}
+#tb tr td:nth-child(6){grid-column:1/-1;grid-row:3;color:var(--muted);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+#tb tr td:nth-child(7){grid-column:1;grid-row:4}#tb tr td:nth-child(8){grid-column:2;grid-row:4;text-align:right}#tb tr td:nth-child(8)::before{content:"срок ";color:var(--muted)}
+#tb tr td.empty{grid-column:1/-1}
+.dialog-actions{position:sticky;bottom:0;z-index:3;background:#fff;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:6px}.dialog-actions .spacer{display:none}
+#cancel,#print,#receipt,#warning{order:1;flex:1;padding:7px;font-size:12px;font-weight:500}.dialog-actions .history{order:5;flex-basis:100%;max-height:30vh;overflow:auto}
+#ready,#issue,#save,#save-receipt{order:2;flex:1 1 40%;padding:13px;font-size:15px}}
+.rep-m{border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin:0 0 10px}.rep-h{display:flex;justify-content:space-between;font-size:16px;margin-bottom:6px}.rep-g{display:grid;grid-template-columns:1fr auto 1fr auto;gap:2px 12px}.rep-g span{color:var(--muted)}.rep-g b{text-align:right}@media screen and (max-width:700px){.rep-g{grid-template-columns:1fr auto}}
+
+/* Consistent controls and layout in both themes. */
+:root{color-scheme:light;--input:#fff;--hover:#eef3ee;--button-ink:#fff;--warning-bg:#fff5df;--warning-ink:#73521b;--warning-line:#ebd4a6;--error-bg:#fff0ed}
+html[data-theme="dark"]{color-scheme:dark;--bg:#111916;--paper:#1b2621;--ink:#e5ece7;--muted:#b0bfb5;--line:#405148;--green:#86d3ab;--red:#ffaaa1;--soft:#25352c;--input:#142019;--hover:#304539;--button-ink:#10251a;--warning-bg:#3c321c;--warning-ink:#f5d99c;--warning-line:#75643b;--error-bg:#442825}
+@media screen{
+body,header,main,.brand,.head-actions,.columns,.columns>div,.grid,.grid>label{min-width:0}
+header,.panel,.toolbar,.auth-card,dialog,.dialog-head,.dialog-actions,#menu,.history summary,.history-list{background:var(--paper);color:var(--ink)}
+#auth-panel,.conflict-json{background:var(--bg)}
+button,input,select,textarea{color:var(--ink);border-color:var(--line)}
+button{background:var(--paper)}button:hover{background:var(--hover)}
+input,textarea,select,.search input,.order-dialog input,.order-dialog textarea,.order-dialog select{background:var(--input);color:var(--ink);border-color:var(--line)}
+input:focus,textarea:focus,select:focus,.order-dialog input:focus,.order-dialog textarea:focus,.order-dialog select:focus{background:var(--input);outline-color:var(--green)}
+label,.order-dialog label,.order-dialog .section h3,.order-dialog .dates strong{color:var(--ink)}
+.primary,.primary:hover,.mark,.order-dialog .dialog-actions .primary{color:var(--button-ink);background:var(--green);border-color:var(--green)}
+.primary:hover{filter:brightness(.92)}
+.warning{background:var(--warning-bg);color:var(--warning-ink);border-color:var(--warning-line)}
+.error{background:var(--error-bg);color:var(--red);border-color:var(--red)}
+#toast{background:var(--ink);color:var(--paper)}
+th,.result-note,.dates,.totals,.order-dialog .dates,.order-dialog .totals,.order-dialog .dialog-head,.order-dialog .dialog-actions{background:var(--soft);color:var(--ink);border-color:var(--line)}
+.order-dialog,.order-dialog .dialog-body,.order-dialog .section{background:var(--paper);border-color:var(--line)}
+.order-dialog .section h3{border-color:var(--line)}
+.muted,.help,.check,.dates span,.order-dialog .dates span,#tb tr[data-status] .muted{color:var(--muted)}
+.kit button,.order-dialog .kit button{background:var(--paper);border-color:var(--line)}
+.kit button.picked,.order-dialog .kit button.picked,.tabs button.on{background:var(--soft);color:var(--green);border-color:var(--green)}
+.tabs i,.tabs .on i{background:var(--soft);color:var(--muted)}
+.offline-number{display:inline-block;padding:2px 7px;border:1px solid var(--line);border-radius:5px;background:var(--soft);color:var(--muted);font-size:11px}
+.number-changed{display:block;margin-top:5px;color:var(--red);font-size:12px}
+#theme-toggle{min-width:40px;min-height:38px;padding:7px 10px;font-size:18px;line-height:1}
+#new{white-space:nowrap}.head-actions{flex-wrap:wrap}#menu{max-width:calc(100vw - 24px)}
+#tb .card{border-radius:0;box-shadow:none;transform:none}#tb td{overflow-wrap:anywhere}
+.field-hint{font-size:12px;color:var(--muted)}
+input:user-invalid,textarea:user-invalid{border-color:var(--red)}
+}
+@media screen and (max-width:700px){
+.head-actions{justify-content:flex-start;width:100%;gap:8px}.head-actions button{min-height:40px}#new{margin-left:auto;font-size:13px;padding:9px 12px}#menu-btn{order:5}#theme-toggle{order:4}#attention{font-size:12px}#cloud-sync{font-size:18px}
+.toolbar{position:static}.toolbar .search{min-width:0;width:100%;flex-basis:100%}
+#orders-table thead{display:none}#orders-table,#tb{width:100%}
+#tb tr td.date-col{display:none}#tb tr td:nth-child(1){min-width:0}#tb tr td:nth-child(5)>strong{display:block}
+#tb tr td:nth-child(5) .muted,#tb tr td:nth-child(7) .muted{display:block}
+#tb tr td.empty{grid-column:1/-1}.grid{min-width:0}
+.order-dialog .client-grid,.order-dialog .executor-grid{grid-template-columns:1fr}
+.order-dialog .client-grid>label,.order-dialog .executor-grid>label{grid-column:1/-1}
+.order-dialog input,.order-dialog textarea,.order-dialog select{font-size:16px}
+.dialog-body{padding:14px}.dialog-head{padding:14px}.order-dialog .dialog-head h2{font-size:17px}
+.dialog-actions{padding:10px}.dialog-actions button{min-width:0;white-space:normal}
+.stats{gap:6px}.stat{padding:7px 10px}.stat span{font-size:12px}
+}
+@media screen and (max-width:360px){#new{margin-left:0}.head-actions{gap:6px}#attention{max-width:150px}.brand h1{font-size:16px}}
+@media screen{
+html[data-theme="dark"] #tb tr[data-status="Р"]{--row-bg:#1b2621}
+html[data-theme="dark"] #tb tr[data-status="Г"]{--row-bg:#293e23}
+html[data-theme="dark"] #tb tr[data-status="В"]{--row-bg:#203c2e}
+html[data-theme="dark"] #tb tr[data-status="С"]{--row-bg:#253549}
+html[data-theme="dark"] #tb tr[data-status="О"]{--row-bg:#43391f}
+html[data-theme="dark"] #tb tr[data-status="Б"]{--row-bg:#3b2b43}
+html[data-theme="dark"] body.plain-rows #tb tr[data-status]{--row-bg:var(--paper)}
+html[data-theme="dark"] #tb tr[data-status] td{border-color:var(--line)}
+html[data-theme="dark"] .status{background:#34463b;color:#e3eee6}
+html[data-theme="dark"] .status[data-s="Г"]{background:#36522c;color:#d4edb8}
+html[data-theme="dark"] .status[data-s="О"]{background:#51432b;color:#ffe0a0}
+html[data-theme="dark"] .status[data-s="С"]{background:#314865;color:#cee2ff}
+html[data-theme="dark"] .status[data-s="Б"]{background:#50385c;color:#ead1fa}
+html[data-theme="dark"] #ready{background:var(--soft);color:var(--green);border-color:var(--line)}
+html[data-theme="dark"] #tb tr:hover td{background-image:linear-gradient(#ffffff08,#ffffff08)}
+}
+@media screen{
+html[data-theme="dark"] .order-dialog .columns>div>.section:nth-child(n){background:var(--paper);border-color:var(--line)}
+html[data-theme="dark"] .order-dialog .section h3{color:var(--green)}
+}
+@media screen and (max-width:700px){
+.head-actions{display:grid;grid-template-columns:42px minmax(0,1fr) 42px 42px;gap:8px}
+.head-actions #cloud-sync{grid-column:1;grid-row:1}.head-actions #attention{grid-column:2;grid-row:1;max-width:none}
+.head-actions #theme-toggle{grid-column:3;grid-row:1}.head-actions #menu-btn{grid-column:4;grid-row:1}
+.head-actions #new{grid-column:1/-1;grid-row:2;margin:0;justify-self:stretch}
+.order-dialog .dialog-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.order-dialog .dialog-actions button{width:100%;min-width:0;padding:10px;font-size:13px;overflow-wrap:normal}
+.order-dialog #cancel{grid-column:1/-1;order:6}.order-dialog .dialog-actions .history{grid-column:1/-1}
+}
+
+/* Workshop surfaces: short labels, clear controls, quiet status colours. */
+@media screen{
+:root{--bg:#f5f6f3;--ink:#253b32;--muted:#5d6e64;--line:#dce3dc;--green:#365b49;--soft:#edf2ec;--hover:#e8eee7;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;line-height:1.5}
+html[data-theme="dark"]{--bg:#111916;--paper:#1b2621;--ink:#e5ece7;--muted:#b0bfb5;--line:#405148;--green:#86d3ab;--soft:#25352c}
+::selection{background:#bcd8c7;color:#183629}input,textarea{caret-color:var(--green)}
+:focus-visible{outline:2px solid var(--green);outline-offset:3px}button{min-height:38px;font-weight:600;border-radius:8px;transition:background .15s}button:disabled{cursor:default}
+header{padding:18px 24px;gap:20px}.brand{gap:11px}.brand h1{font-size:19px;font-weight:650;letter-spacing:-.5px}.brand .sub{font-size:12px}.mark{border-radius:10px;font-size:22px;width:40px;height:40px}
+.head-actions{gap:8px}#new{padding:10px 16px}#cloud-sync,#theme-toggle,#menu-btn{display:inline-flex;align-items:center;justify-content:center;min-width:40px}.sync::before{width:5px;height:5px;font-size:0;background:var(--green);border-radius:50%;margin-right:5px}.sync[data-st=off]::before{background:#bd7b28}.sync[data-st=bad]::before{background:var(--red)}#menu button{min-height:42px}
+main{max-width:1500px;padding:24px}.overview{margin-bottom:18px;align-items:center}.overview h2{font-size:19px;font-weight:600;letter-spacing:-.4px}#today{font-size:12px}
+#backup-reminder{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:12px 15px;font-size:12px;margin-bottom:20px}#backup-reminder>span strong{display:block;font-size:13px;margin-bottom:2px}#backup-reminder button{flex-shrink:0}
+.panel{border-radius:12px}.toolbar{padding:16px;gap:14px}.search input{background:var(--input);min-height:43px;border-color:var(--line);font-size:14px}.search span{top:9px}#sort{font-size:12px;min-height:39px}.check{font-size:12px}
+.tabs{gap:4px;padding:0 14px 14px}.tabs button{font-size:12px;min-height:35px;padding:7px 9px}.tabs i{font-size:11px;background:transparent;padding:1px 3px}.tabs .on i{background:transparent;color:inherit}.tabs button.on{border-color:var(--line);font-weight:600}
+.result-note{background:var(--paper);font-size:11px;padding:10px 16px}th{font-size:11px;padding:12px 14px;background:var(--soft);letter-spacing:.5px}td{padding:14px;font-size:13px}.order-link{font-variant-numeric:tabular-nums}#tb tr td .order-link{font-size:13px}.status{font-size:11px;font-weight:600;border-radius:4px}.empty{padding:50px 20px;line-height:1.9}.empty strong{font-size:15px;font-weight:500;color:var(--ink)}
+#tb tr[data-status="Р"]{--row-bg:var(--paper)}#tb tr[data-status="Г"]{--row-bg:#f0f5e7}#tb tr[data-status="В"]{--row-bg:#edf4ed}#tb tr[data-status="О"]{--row-bg:#faf4e6}#tb tr[data-status="С"]{--row-bg:#edf2f7}#tb tr[data-status="Б"]{--row-bg:#f4eef6}body.plain-rows #tb tr[data-status]{--row-bg:var(--paper)}
+#cloud-status{font-size:12px;color:var(--muted);line-height:1.8;margin-top:16px}footer{font-size:11px;line-height:1.8}
+.order-dialog{border:1px solid var(--line);border-radius:12px}.order-dialog .section{border-radius:8px}.order-dialog .section h3{font-size:12px;font-weight:600;letter-spacing:0;margin-bottom:10px}.order-dialog label{font-size:12px;font-weight:500}.order-dialog .dialog-head,.order-dialog .dialog-actions{padding:14px 18px}.order-dialog .dialog-head h2{font-size:19px;font-weight:600}.order-dialog .dialog-body{padding:16px 18px}.order-dialog .warning{font-size:12px;line-height:1.7;padding:10px 12px}.order-dialog .dates{font-size:12px;padding:10px 12px}.order-dialog input,.order-dialog select{min-height:35px}.order-dialog textarea{min-height:66px}.order-dialog .totals strong{font-size:24px}.order-dialog .totals{border-color:var(--line)}
+.auth-card{box-shadow:none;border-radius:12px}.auth-card h1{font-size:24px;font-weight:600;letter-spacing:-.6px}.auth-card input{min-height:43px}.auth-card .primary{width:100%;min-height:44px}
+}
+@media screen and (max-width:700px){header{padding:14px 12px;gap:12px}.brand h1{font-size:18px}.brand .sub{display:block;font-size:11px}.mark{width:36px;height:36px}.head-actions button{min-height:43px}.head-actions{gap:7px}main{padding:16px 10px 28px}.overview{flex-wrap:wrap;gap:6px;margin-bottom:14px}.overview h2{font-size:18px}.toolbar{padding:12px;gap:10px}.search input{font-size:16px}.toolbar .check{font-size:11px}.tabs{padding:0 10px 12px}.tabs button{min-height:40px}.result-note{padding:9px 12px}
+#tb tr{padding:16px 13px;gap:5px 10px}#tb tr td:nth-child(1){gap:7px}#tb tr td:nth-child(5){font-size:15px;margin-top:2px}#tb tr td:nth-child(6){font-size:12px}#tb tr td:nth-child(7){margin-top:4px;font-size:12px}#tb tr td:nth-child(8){font-size:11px;align-self:end}.status{font-size:11px}.order-dialog .dialog-body{padding:12px}.order-dialog .dialog-head,.order-dialog .dialog-actions{padding:12px}.order-dialog input,.order-dialog select{min-height:42px;font-size:16px}.order-dialog label{font-size:12px}.order-dialog .section{padding:12px}.order-dialog .columns{gap:0}.order-dialog .kit button{min-height:34px}.order-dialog .dialog-actions button{min-height:43px}
+#backup-reminder{align-items:flex-start;font-size:11px;padding:12px;gap:8px}#backup-reminder button{font-size:11px;padding:8px 10px}
+}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;animation:none!important}}
+
+/* Offline desktop, designed first for a 4:3 workshop monitor. */
+@media screen{dialog::backdrop{backdrop-filter:none}button{transition:none}}
+#export-html{display:block}
+@media screen{
+header{display:flex;flex-wrap:wrap;padding:14px 18px;gap:12px}.brand{margin-right:auto}.head-actions{display:flex;flex-wrap:wrap;gap:7px;width:100%;justify-content:flex-start}.head-actions button{min-height:36px;padding:8px 11px;font-size:12px}.head-actions #new{order:-1;margin:0}.head-actions #account{max-width:240px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.brand .sub{display:block}
+main{padding:18px;max-width:1440px}.panel>.table-wrap{overflow:auto}#orders-table{min-width:850px}#orders-table th,#orders-table td{padding:11px 10px}#orders-table td.model{min-width:155px}#orders-table td.problem{min-width:130px}#orders-table td.client{min-width:125px}.toolbar{gap:10px;padding:12px}.search{min-width:200px}.search input{font-size:14px}#sort{max-width:170px}.check{font-size:11px}#backup-reminder{margin-bottom:14px}
+.order-dialog .dialog-body{padding:12px}.order-dialog .section{padding:10px;margin-bottom:10px;background:var(--paper)!important;border-color:var(--line)}.order-dialog .section h3{margin-bottom:7px;font-size:12px}.order-dialog label{font-size:12px}.order-dialog .grid{gap:7px 10px}.order-dialog input,.order-dialog select{padding:6px 8px;min-height:32px}.order-dialog textarea{height:60px;min-height:50px}.order-dialog .dialog-head,.order-dialog .dialog-actions{padding:11px 14px}.order-dialog .dates{padding:8px 10px;margin-bottom:10px}.order-dialog .totals{padding:10px;margin-bottom:10px}.order-dialog .totals strong{font-size:23px}.order-dialog .columns{gap:12px}.order-dialog .work-grid{grid-template-columns:minmax(0,1fr) 100px}.order-dialog .work-grid>label{grid-column:auto}
+.order-dialog .client-grid{grid-template-columns:1fr 1fr}.order-dialog .client-grid>label:has(#fa){grid-column:1/-1}.order-dialog .executor-grid{grid-template-columns:1fr 1fr}.order-dialog .executor-grid>label:has(#fs){grid-column:1/-1}
+}
+@media screen and (min-width:760px) and (max-height:800px){.order-dialog{width:calc(100vw - 24px);max-width:1260px;max-height:calc(100vh - 24px)}.order-dialog .dialog-body{padding:10px 12px}.order-dialog textarea{height:50px;min-height:42px}.order-dialog .section{padding:9px;margin-bottom:8px}.order-dialog .section h3{margin-bottom:5px}.order-dialog .dates{margin-bottom:8px}.order-dialog .history-list{max-height:180px}.dialog-actions button{font-size:12px;min-height:34px}}
+@media screen and (min-width:760px) and (max-width:1100px){header{padding:12px 16px}.overview{margin-bottom:12px}.overview h2{font-size:18px}.head-actions button{padding:7px 9px}.head-actions #account{max-width:210px}main{padding:14px}.toolbar{flex-wrap:wrap}.search{flex-basis:50%}.tabs{padding:0 8px 10px;gap:1px}.tabs button{font-size:11px;padding:6px 7px}.tabs i{font-size:11px}}
+@media screen and (max-width:759px){.head-actions{display:flex;flex-wrap:wrap}.head-actions #new{width:100%;order:-1;min-height:42px}.head-actions button{font-size:12px;min-height:40px}header{padding:12px}.panel>.table-wrap{overflow:visible}#orders-table{min-width:0}.order-dialog .work-grid,.order-dialog .client-grid,.order-dialog .executor-grid{grid-template-columns:1fr}.order-dialog .work-grid>label{grid-column:1/-1}.order-dialog input,.order-dialog select{font-size:16px;min-height:42px}}
+</style></head><body>
+<header><div class="brand"><div class="mark" aria-hidden="true">М</div><div><h1>Мастерская</h1><div class="sub">Локальная версия · Без интернета</div></div></div><div class="head-actions"><button id="attention" disabled>Звонки и сроки</button><button id="settings">Настройки</button><button id="backup">Резервные копии</button><button class="primary" id="new" disabled>Принять в ремонт</button></div></header>
+<main><div class="overview"><h2>Заказы мастерской</h2><div id="today"></div></div>
+<div id="error" role="alert"></div><div id="notice" class="warning" role="status"></div>
+<div id="backup-reminder" class="warning" role="status" hidden></div>
+<div id="stats" class="stats" aria-label="Сводка заказов и быстрые фильтры"></div>
+<section class="panel" aria-label="Заказы"><div class="toolbar"><div class="search"><span aria-hidden="true">⌕</span><input id="q" type="search" placeholder="Номер заказа, телефон, клиент или техника" aria-label="Поиск заказов" autocomplete="off"></div><label class="check"><input id="scope" type="checkbox">В выбранном статусе</label><select id="sort" aria-label="Сортировка"><option value="new">Сначала новые</option><option value="urgent">Сначала срочные</option><option value="due">По сроку готовности</option><option value="old">Сначала старые</option></select></div>
+<nav id="tabs" class="tabs" aria-label="Статусы заказов"></nav><div class="result-note"><span id="note">Загрузка базы…</span><span>Нажмите на номер заказа</span></div>
+<div class="table-wrap"><table id="orders-table"><thead><tr><th>Заказ</th><th class="date-col">Принят</th><th class="date-col">Готов</th><th class="date-col">Выдан</th><th>Техника</th><th class="problem">Неисправность</th><th>Клиент</th><th>Срок</th><th>Сумма</th></tr></thead><tbody id="tb"></tbody></table></div><div id="more"></div></section>
+<div id="storage" role="status">Подключение локального хранилища…</div><footer>Работает без интернета · Заказы хранятся в этом браузере · Сохраняйте резервную копию на флешку.</footer></main>
+<dialog id="dlg" aria-labelledby="dialog-title"></dialog><datalist id="masters"></datalist><div id="toast" class="hidden" role="status"></div><div id="print-area"></div>
+<script id="seed" type="application/json" data-dataset="service-workshop-local-v1" data-legacy="false">[]</script>
+<script id="settings-seed" type="application/json">{}</script>
+<script>'use strict';
+const $=s=>document.querySelector(s);
+function localUUID(){if(typeof crypto.randomUUID==='function')return crypto.randomUUID();const bytes=crypto.getRandomValues(new Uint8Array(16));bytes[6]=(bytes[6]&15)|64;bytes[8]=(bytes[8]&63)|128;const hex=Array.from(bytes,b=>b.toString(16).padStart(2,'0')).join('');return hex.slice(0,8)+'-'+hex.slice(8,12)+'-'+hex.slice(12,16)+'-'+hex.slice(16,20)+'-'+hex.slice(20);}
+
+const TABS=[['*','Все'],['Р','В ремонте'],['Г','Готовы к выдаче'],['С','На согласовании'],['О','Ждут запчасти'],['Б','Без ремонта'],['В','Выданы']];
+const names=Object.fromEntries(TABS);
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const pad=n=>String(n).padStart(2,'0');
+function nowS(){const d=new Date();return `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())} ${pad(d.getHours())}:${pad(d.getMinutes())}:${pad(d.getSeconds())}`;}
+const today=()=>nowS().slice(0,10);
+function updateClock(){const d=new Date();$('#today').textContent=d.toLocaleDateString('ru-RU',{day:'numeric',month:'long',year:'numeric'})+' · '+d.toLocaleTimeString('ru-RU',{hour:'2-digit',minute:'2-digit',hour12:false});}
+function dateIn(n){const d=new Date();d.setDate(d.getDate()+n);return `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`;}
+const fd=s=>/^\d{4}-\d{2}-\d{2}/.test(s||'')?s.slice(8,10)+'.'+s.slice(5,7)+'.'+s.slice(0,4):String(s||'');
+const fdt=s=>s?fd(s)+(String(s).length>10?' · '+String(s).slice(11):''):'';
+const dateCell=s=>s?`${esc(fd(s))}<div class="muted num">${esc(String(s).slice(11))||'Время не указано'}</div>`:'—';
+function masterKey(name){return String(name||'').trim();}
+function masterName(name){const key=masterKey(name);return SETTINGS.masters.find(m=>m.id===key)?.name||name||'';}
+function masterOptions(value){const options=[['','Не назначен'],...SETTINGS.masters.filter(m=>!m.retired).map(m=>[m.id,m.name])];if(value&&!options.some(([v])=>v===value)){const key=masterKey(value),known=options.findIndex(([v])=>v===key);if(known>=0)options[known]=[value,masterName(value)];else options.push([value,masterName(value)+' (из архива)']);}return options.map(([v,label])=>`<option value="${esc(v)}" ${v===(value||'')?'selected':''}>${esc(label)}</option>`).join('');}
+const money=n=>Number(n||0).toLocaleString('ru-RU',{maximumFractionDigits:2})+' ₽';
+const total=x=>Math.round(((Number(x.ws)||0)+(Number(x.ps)||0))*100)/100;
+const active=x=>['Р','С','О'].includes(x.s);
+const overdue=x=>active(x)&&/^\d{4}-\d{2}-\d{2}$/.test(x.d||'')&&x.d<today();
+const clone=x=>JSON.parse(JSON.stringify(x));
+const DEFAULT_SETTINGS={title:'Мастерская',subtitle:'Без интернета · Учёт ремонта техники',defaultTab:'Р',rowColors:true,backupReminder:true,repairDays:30,pickupDays:14,printTitle:'Ремонт и обслуживание техники',executor:'',address:'',phone:'',details:'',masters:[]};
+function validateSettings(raw){
+ if(!raw||typeof raw!=='object'||Array.isArray(raw))throw Error('Неверный формат настроек.');
+ const result=JSON.parse(JSON.stringify(DEFAULT_SETTINGS));
+ for(const key of ['title','subtitle','printTitle','executor','address','phone','details']){if(raw[key]!==undefined){if(typeof raw[key]!=='string'||raw[key].length>500)throw Error('Некорректное поле настроек: '+key);result[key]=raw[key].trim();}}
+ if(!result.title)throw Error('Укажите название программы.');
+ if(raw.defaultTab!==undefined){if(!TABS.some(([s])=>s===raw.defaultTab))throw Error('Неизвестная начальная вкладка.');result.defaultTab=raw.defaultTab;}
+ if(raw.rowColors!==undefined){if(typeof raw.rowColors!=='boolean')throw Error('Неверная настройка цвета строк.');result.rowColors=raw.rowColors;}
+ if(raw.backupReminder!==undefined){if(typeof raw.backupReminder!=='boolean')throw Error('Некорректная настройка напоминаний.');result.backupReminder=raw.backupReminder;}
+ for(const key of ['repairDays','pickupDays']){if(raw[key]!==undefined){if(!Number.isInteger(raw[key])||raw[key]<1||raw[key]>3650)throw Error('Сроки контроля должны быть целыми числами от 1 до 3650 дней.');result[key]=raw[key];}}
+ if(raw.masters!==undefined){
+  if(!Array.isArray(raw.masters)||raw.masters.length>200)throw Error('Некорректный список мастеров.');
+  const ids=new Set(),labels=new Set();result.masters=raw.masters.map(m=>{if(!m||typeof m.id!=='string'||!m.id||m.id.length>100||ids.has(m.id)||typeof m.name!=='string'||!m.name.trim()||m.name.length>100||typeof m.retired!=='boolean')throw Error('Проверьте имена мастеров.');const name=m.name.trim(),key=name.toLocaleLowerCase('ru-RU');if(labels.has(key))throw Error('Имена мастеров не должны повторяться.');ids.add(m.id);labels.add(key);return {id:m.id,name,retired:m.retired};});
+ }
+ return result;
+}
+let SETTINGS=validateSettings(JSON.parse($('#settings-seed')?.textContent||'{}'));
+function readSettings(){return new Promise((resolve,reject)=>{const r=idb.transaction('meta').objectStore('meta').get('settings');r.onsuccess=()=>{try{resolve(validateSettings(r.result||SETTINGS));}catch(e){reject(e);}};r.onerror=()=>reject(r.error);});}
+function applySettings(){
+ document.querySelector('header h1').textContent=SETTINGS.title;document.querySelector('header .sub').textContent=SETTINGS.subtitle;document.querySelector('header .mark').textContent=SETTINGS.title.charAt(0).toLocaleUpperCase('ru-RU');document.title=SETTINGS.title;
+ document.body.classList.toggle('plain-rows',!SETTINGS.rowColors);renderBackupReminder();
+}
+async function saveSettings(next,expected){await authorizeLocal('owner');return new Promise((resolve,reject)=>{const tx=idb.transaction('meta','readwrite'),store=tx.objectStore('meta');let reason='';const r=store.get('settings');r.onsuccess=()=>{if(JSON.stringify(r.result)!==JSON.stringify(expected)){reason='Настройки изменились в другой вкладке. Закройте настройки и откройте снова.';tx.abort();return;}store.put(next,'settings');};tx.oncomplete=resolve;tx.onerror=tx.onabort=()=>reject(Error(reason||'Не удалось сохранить настройки. Изменения остались в форме.'));});}
+function settingsDialog(){requireOwner();
+ const original=clone(SETTINGS),draft=clone(SETTINGS);
+ showDialog(`<div class="dialog-head"><h2 id="dialog-title">Настройки программы</h2><button id="xc" class="close" aria-label="Закрыть">×</button></div><form id="settings-form"><div class="settings-tabs" role="tablist" aria-label="Разделы настроек">${[['shop','Мастерская'],['masters','Мастера'],['journal','Журнал'],['act','Акт работ'],['cleanup','Удаление заказов']].map(([id,name],i)=>`<button type="button" role="tab" id="tab-${id}" aria-controls="settings-${id}" aria-selected="${i===0}" tabindex="${i===0?0:-1}" data-settings-tab="${id}">${name}</button>`).join('')}</div><div class="dialog-body"><div id="settings-error" class="error hidden" role="alert"></div>
+ <section id="settings-shop" role="tabpanel" aria-labelledby="tab-shop"><div class="grid">${F('Название вверху программы','st-title',draft.title,'text','full')}${F('Подпись под названием','st-subtitle',draft.subtitle,'text','full')}</div><p class="help">Можно указать своё название мастерской. Изменится также название вкладки браузера.</p></section>
+ <section id="settings-masters" role="tabpanel" aria-labelledby="tab-masters" hidden><p class="help">Имя можно изменить прямо в поле. «Убрать» скрывает мастера из выбора для новых заказов. Старые заказы сохраняются.</p><div id="settings-master-list"></div><button type="button" id="add-master">＋ Добавить мастера</button></section>
+ <section id="settings-journal" role="tabpanel" aria-labelledby="tab-journal" hidden><label>Какая вкладка открывается при запуске<select id="st-defaultTab">${TABS.map(([s,label])=>`<option value="${s}" ${s===draft.defaultTab?'selected':''}>${label}</option>`).join('')}</select></label><label class="check settings-check"><input type="checkbox" id="st-rowColors" ${draft.rowColors?'checked':''}>Окрашивать всю строку по статусу заказа</label><label class="check settings-check"><input type="checkbox" id="st-backupReminder" ${draft.backupReminder?'checked':''}>Напоминать о резервной копии каждый день</label><div class="grid">${F('Контроль: дней в работе','st-repairDays',draft.repairDays,'number')}${F('Контроль: дней до получения','st-pickupDays',draft.pickupDays,'number')}</div><p class="help">Целые числа от 1 до 3650. Эти сроки используются в списке залежавшейся техники.</p></section>
+ <section id="settings-act" role="tabpanel" aria-labelledby="tab-act" hidden><div class="grid">${F('Надпись над заголовком акта','st-printTitle',draft.printTitle,'text','full')}${F('Адрес мастерской','st-address',draft.address,'text','full')}${F('Исполнитель (имя / организация)','st-executor',draft.executor)}${F('Телефон исполнителя','st-phone',draft.phone,'tel')}${F('Дополнительные реквизиты','st-details',draft.details,'text','full')}</div><p class="help">Эти данные подставляются при печати новых актов. Пустые поля исполнителя и телефона остаются линиями для заполнения от руки.</p></section>
+ <section id="settings-cleanup" role="tabpanel" aria-labelledby="tab-cleanup" hidden><p class="help">Найдите старые заказы по дате и статусу, отметьте отдельные записи или все найденные и удалите их из базы. Перед удалением будет скачана резервная копия.</p><button type="button" id="open-cleanup" class="danger">Выбрать заказы для удаления</button></section>
+
+ </div><div class="dialog-actions"><button type="button" id="settings-cancel">Отмена</button><span class="spacer"></span><button type="submit" class="primary" id="settings-save">Сохранить настройки</button></div></form>`,'settings-dialog');
+ const collect=()=>validateSettings({...draft,...Object.fromEntries(['title','subtitle','printTitle','address','executor','phone','details'].map(key=>[key,$('#st-'+key).value])),defaultTab:$('#st-defaultTab').value,rowColors:$('#st-rowColors').checked,backupReminder:$('#st-backupReminder').checked,repairDays:Number($('#st-repairDays').value),pickupDays:Number($('#st-pickupDays').value)});
+ const snapshot=()=>JSON.stringify({fields:[...$('#settings-form').querySelectorAll('input,select')].map(e=>[e.id,e.type==='checkbox'?e.checked:e.value]),masters:draft.masters});
+ function drawMasters(){
+  $('#settings-master-list').innerHTML=draft.masters.map((m,i)=>`<div class="settings-master ${m.retired?'retired':''}"><label>Имя мастера${m.retired?' · убран из выбора':''}<input data-master-name="${i}" aria-label="Имя мастера ${i+1}" maxlength="100" value="${esc(m.name)}"></label><button type="button" data-master-toggle="${i}">${m.retired?'Вернуть':'Убрать'}</button></div>`).join('');
+ }
+ drawMasters();const initial=snapshot();dirtyCheck=()=>snapshot()!==initial;closing=()=>!dirtyCheck()||confirm('В настройках есть несохранённые изменения. Закрыть без сохранения?');
+ $('#settings-cancel').onclick=()=>closeDialog();
+ $('#open-cleanup').onclick=()=>{if(busy||!loaded||!idb)return;if(closing&&!closing())return;closeDialog(true);cleanupDialog();};
+ $('#settings-master-list').oninput=e=>{if(e.target.hasAttribute('data-master-name'))draft.masters[Number(e.target.dataset.masterName)].name=e.target.value;};
+ $('#settings-master-list').onclick=e=>{const b=e.target.closest('[data-master-toggle]');if(!b)return;const m=draft.masters[Number(b.dataset.masterToggle)];if(!m.name.trim()&&!original.masters.some(old=>old.id===m.id))draft.masters.splice(Number(b.dataset.masterToggle),1);else m.retired=!m.retired;drawMasters();};
+ $('#add-master').onclick=()=>{if(draft.masters.length>=200)return;draft.masters.push({id:'master-'+Date.now()+'-'+Math.random().toString(36).slice(2),name:'',retired:false});drawMasters();$('#settings-master-list').lastElementChild.querySelector('input').focus();};
+ function tab(id){$('#settings-form').querySelectorAll('[role="tabpanel"]').forEach(e=>e.hidden=e.id!=='settings-'+id);$('#settings-form').querySelectorAll('[role="tab"]').forEach(e=>{const on=e.dataset.settingsTab===id;e.setAttribute('aria-selected',String(on));e.tabIndex=on?0:-1;});}
+ $('.settings-tabs').onclick=e=>{const b=e.target.closest('[data-settings-tab]');if(b)tab(b.dataset.settingsTab);};
+ $('.settings-tabs').onkeydown=e=>{if(!['ArrowLeft','ArrowRight','Home','End'].includes(e.key))return;const buttons=[...$('.settings-tabs').children],i=buttons.indexOf(document.activeElement);if(i<0)return;e.preventDefault();const next=e.key==='Home'?0:e.key==='End'?buttons.length-1:(i+(e.key==='ArrowRight'?1:-1)+buttons.length)%buttons.length;tab(buttons[next].dataset.settingsTab);buttons[next].focus();};
+ $('#settings-form').onsubmit=async e=>{e.preventDefault();if(busy||!loaded||!idb)return;try{const next=collect();busy=true;$('#settings-form').querySelectorAll('button,input,select').forEach(el=>el.disabled=true);await saveSettings(next,original);SETTINGS=next;applySettings();render();busy=false;closeDialog(true);broadcast();toast('Настройки сохранены');}catch(err){busy=false;$('#settings-form').querySelectorAll('button,input,select').forEach(el=>el.disabled=false);$('#settings-error').textContent=err.message;$('#settings-error').classList.remove('hidden');}};
+ if(!loaded||!idb)$('#settings-form').querySelectorAll('button,input,select').forEach(el=>el.disabled=true);
+}
+
+const dataset=$('#seed').dataset.dataset;
+let LAST_ORDER_NUMBER=Number($('#seed').dataset.lastNumber)||0;
+let DB=[],idb=null,cur='Р',quick='',lim=100,busy=false,loaded=false,closing=null,dirtyCheck=null,channel=null,refreshNeeded=false;
+function toast(t){$('#toast').textContent=t;$('#toast').classList.remove('hidden');clearTimeout(toast.timer);toast.timer=setTimeout(()=>$('#toast').classList.add('hidden'),4500);}
+function showError(t){$('#error').textContent=t;}
+function markSaved(){renderBackupReminder();$('#storage').textContent='● Изменения сохраняются в этом браузере · Последнее обновление: '+nowS().slice(11)+'. Рекомендуем регулярно скачивать копию.'; }
+function openDB(name,legacy=false){return new Promise((resolve,reject)=>{let req;try{req=indexedDB.open(name,legacy?undefined:1);}catch(e){reject(e);return;}
+ req.onupgradeneeded=()=>{if(legacy){req.transaction.abort();return;}req.result.createObjectStore('orders',{keyPath:'k'});req.result.createObjectStore('meta');};
+ req.onsuccess=()=>{const db=req.result;db.onversionchange=()=>db.close();resolve(db);};
+ req.onerror=()=>legacy?resolve(null):reject(req.error);req.onblocked=()=>reject(new Error('Закройте другие вкладки программы и обновите страницу.'));
+});}
+function readLastOrderNumber(){return new Promise((resolve,reject)=>{const r=idb.transaction('meta').objectStore('meta').get('lastOrderNumber');r.onsuccess=()=>resolve(Math.max(Number(r.result)||0,LAST_ORDER_NUMBER));r.onerror=()=>reject(r.error);});}
+function getAll(db,store){return new Promise((resolve,reject)=>{const req=db.transaction(store).objectStore(store).getAll();req.onsuccess=()=>resolve(req.result);req.onerror=()=>reject(req.error);});}
+function validateRecords(raw){const list=Array.isArray(raw)?raw:raw?.orders;if(!Array.isArray(list))throw new Error('В файле нет списка заказов.');if(list.length>200000)throw new Error('Слишком много записей в одном файле.');
+ const seen=new Set(),seenIds=new Set();return list.map((item,index)=>{if(!item||typeof item!=='object'||Array.isArray(item))throw new Error(`Запись ${index+1}: неверный формат.`);const x=clone(item);
+ if(!Number.isSafeInteger(x.k)||x.k<0||seen.has(x.k))throw new Error(`Запись ${index+1}: неверный или повторяющийся номер заказа.`);seen.add(x.k);if(x._id!==undefined){if(typeof x._id!=='string'||!/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(x._id)||seenIds.has(x._id.toLowerCase()))throw Error('Неверный или повторяющийся внутренний идентификатор заказа.');seenIds.add(x._id.toLowerCase());}
+ if(!Object.hasOwn(names,x.s)||x.s==='*')throw new Error(`Заказ № ${x.k}: неизвестный статус.`);
+ for(const key of ['ws','ps'])if(x[key]!=null&&(typeof x[key]!=='number'||!Number.isFinite(x[key])))throw new Error(`Заказ № ${x.k}: некорректная сумма.`);
+ for(const [key,value] of Object.entries(x)){if(['__proto__','constructor','prototype'].includes(key))throw new Error('Недопустимое поле в копии.');if(!key.startsWith('_')&&!['k','u','ws','ps'].includes(key)&&value!=null&&typeof value!=='string')throw new Error(`Заказ № ${x.k}: неверное поле ${key}.`);}
+ if(x.u!=null&&typeof x.u!=='boolean')throw new Error(`Заказ № ${x.k}: неверная отметка срочности.`);
+ if(x._history!=null&&(!Array.isArray(x._history)||x._history.some(h=>!h||typeof h!=='object'||typeof h.at!=='string'||typeof h.to!=='string'||typeof h.from!=='string')))throw new Error(`Заказ № ${x.k}: неверная история статусов.`);
+ if(x._contacts!==undefined){if(!Array.isArray(x._contacts)||x._contacts.some(c=>!c||typeof c!=='object'||typeof c.at!=='string'||!validDay(c.at.slice(0,10))||!CONTACT_OUTCOMES.includes(c.outcome)||typeof c.note!=='string'||c.note.length>4000||typeof c.next!=='string'||(c.next&&!validDay(c.next))))throw Error(`Заказ № ${x.k}: неверная история контактов.`);}
+ return x;});}
+function initialize(records){return new Promise((resolve,reject)=>{const tx=idb.transaction(['orders','meta'],'readwrite'),meta=tx.objectStore('meta');let inserted=false;const watermark=meta.get('lastOrderNumber');watermark.onsuccess=()=>{const cursor=tx.objectStore('orders').openCursor(null,'prev');cursor.onsuccess=()=>meta.put(Math.max(Number(watermark.result)||0,Number(cursor.result?.key)||0,LAST_ORDER_NUMBER,records.reduce((m,o)=>Math.max(m,o.k),0)),'lastOrderNumber');};const settingsRequest=meta.get('settings');settingsRequest.onsuccess=()=>{if(!settingsRequest.result)meta.put(SETTINGS,'settings');};const req=meta.get('initialized');req.onsuccess=()=>{if(!req.result){const store=tx.objectStore('orders');records.forEach(x=>store.put(x));meta.put(true,'initialized');meta.put(1,'generation');inserted=true;}};tx.oncomplete=()=>resolve(inserted);tx.onerror=tx.onabort=()=>reject(tx.error||new Error('Не удалось создать базу.'));});}
+async function refresh(){if(!idb)return;DB=await getAll(idb,'orders');LAST_ORDER_NUMBER=await readLastOrderNumber();SETTINGS=await readSettings();BACKUP_STATE=await readMeta('backupState')||{};applySettings();render();markSaved();}
+function broadcast(){try{if(channel)channel.postMessage('changed');}catch{channel=null;}}
+async function writeOrder(draft,original){await authorizeLocal('edit',original);return new Promise((resolve,reject)=>{const tx=idb.transaction(['orders','meta'],'readwrite'),store=tx.objectStore('orders'),meta=tx.objectStore('meta');let result,reason='';
+ const fail=t=>{reason=t;tx.abort();};
+ const write=k=>{const high=meta.get('lastOrderNumber');high.onsuccess=()=>{LAST_ORDER_NUMBER=Math.max(Number(high.result)||0,LAST_ORDER_NUMBER,k);meta.put(LAST_ORDER_NUMBER,'lastOrderNumber');};result={...draft,k,_id:original?._id||draft._id||localUUID(),_rev:(Number(original?._rev)||0)+1,_updated:nowS()};store.put(result);};
+ if(original){const r=store.get(original.k);r.onsuccess=()=>{if(!r.result||JSON.stringify(r.result)!==JSON.stringify(original))return fail('Этот заказ изменён в другой вкладке. Скопируйте свои правки, закройте карточку и откройте её снова.');write(original.k);};}
+ else {const r=store.openCursor(null,'prev');r.onsuccess=()=>{const highest=r.result?Number(r.result.key):0;const watermark=meta.get('lastOrderNumber');watermark.onsuccess=()=>{const next=Math.max(highest,Number(watermark.result)||0,LAST_ORDER_NUMBER)+1;if(!Number.isSafeInteger(next))return fail('Не удалось назначить номер заказа.');write(next);};};}
+ tx.oncomplete=()=>resolve(result);tx.onerror=tx.onabort=()=>reject(new Error(reason||'Не удалось сохранить заказ. Возможно, хранилище заполнено или недоступно. Карточка остаётся открытой: скопируйте изменения и скачайте резервную копию.'));
+});}
+function searchMatch(x,q){const norm=s=>String(s??'').toLocaleLowerCase('ru').replace(/ё/g,'е');const text=norm([x.k,x.m,x.i,x.w,x.p,x.c,x.t,x.a,x.ma,masterName(x.ma),x.pr,x.sn,x.mp,x.ca].join(' '));
+ const digits=q.replace(/\D/g,'');if(digits.length>=5&&/^[+\d\s()\-]+$/.test(q)){const phone=String(x.t||'').replace(/\D/g,'');if(phone.includes(digits)||((digits.length===11&&/^[78]/.test(digits))&&phone.slice(-10)===digits.slice(-10)))return true;}
+ return norm(q).split(/\s+/).every(token=>text.includes(token));}
+function render(){const q=$('#q').value.trim(),scope=$('#scope').checked;let list=visibleOrders(DB).filter(x=>(!q||searchMatch(x,q))&&((q&&!scope)||cur==='*'||x.s===cur));
+ if(quick==='late')list=list.filter(overdue);if(quick==='urgent')list=list.filter(x=>x.u&&x.s!=='В');if(quick==='active')list=list.filter(active);
+ const sort=$('#sort').value;list.sort((a,b)=>sort==='old'?a.k-b.k:sort==='urgent'?(Number(!!b.u)-Number(!!a.u)||b.k-a.k):sort==='due'?((a.d||'9999').localeCompare(b.d||'9999')||b.k-a.k):b.k-a.k);
+ const count={};const accessible=visibleOrders(DB);accessible.forEach(x=>count[x.s]=(count[x.s]||0)+1);
+ const stats=[['repair','В ремонте',count['Р']||0],['ready','Готовы к выдаче',count['Г']||0],['late','Срок прошёл',accessible.filter(overdue).length],['urgent','Срочные',accessible.filter(x=>x.u&&x.s!=='В').length]];
+ $('#stats').innerHTML=stats.map(([key,label,n])=>{const selected=key==='repair'||key==='ready'?(!quick&&(!q||scope)&&cur===(key==='repair'?'Р':'Г')):quick===key;return `<button class="stat ${key==='late'?'alert':''} ${selected?'active':''}" data-filter="${key}" aria-pressed="${selected}"><span>${label}</span><strong>${n}</strong></button>`;}).join('');
+ $('#tabs').innerHTML=TABS.map(([s,label])=>`<button data-s="${s}" class="${s===cur&&(!q||scope)&&!quick?'on':''}" aria-pressed="${s===cur&&(!q||scope)&&!quick}">${label}<i>${s==='*'?accessible.length:count[s]||0}</i></button>`).join('');
+ $('#note').textContent=`${q?`Поиск ${scope?'в статусе «'+names[cur]+'»':'по всей базе'}. `:''}${quick?({'late':'Срок прошёл. ','urgent':'Срочные заказы. ','active':'Ремонт, согласование и ожидание деталей. '}[quick]||''):''}Найдено: ${list.length.toLocaleString('ru-RU')} · Показано: ${Math.min(list.length,lim)}`;
+ $('#tb').innerHTML=list.length?list.slice(0,lim).map(x=>`<tr data-status="${esc(x.s)}"><td><button class="order-link" data-k="${x.k}" aria-label="Открыть заказ ${x.k}">№ ${x.k}</button><div style="margin-top:2px"><span class="status" data-s="${esc(x.s)}">${names[x.s]}</span></div>${x.u?'<div class="urgent">● Срочно</div>':''}</td><td class="date-col num">${dateCell(x.n)}</td><td class="date-col num">${dateCell(x.r)}</td><td class="date-col num">${dateCell(x.o)}</td><td class="model"><strong>${esc(x.m)||'Техника не указана'}</strong>${x.sn?`<div class="muted">Сер. № ${esc(x.sn)}</div>`:''}${x.ma?`<div class="muted">Мастер: ${esc(masterName(x.ma))}</div>`:''}</td><td class="problem">${esc(x.i)||'—'}</td><td class="client">${esc(x.c)||'<span class="muted">Имя не указано</span>'}<div class="muted num">${esc(x.t)}</div>${contactSummary(x)}</td><td class="num ${overdue(x)?'late':''}">${esc(fd(x.d))||'—'}</td><td class="amount num">${money(total(x))}</td></tr>`).join(''):'<tr><td colspan="9" class="empty"><strong>Здесь пока нет заказов</strong><br>Примите технику или измените поиск и статус.</td></tr>';
+ $('#more').innerHTML=list.length>lim?`<button id="moreb">Показать ещё ${Math.min(100,list.length-lim)}</button>`:'';
+ $('#masters').innerHTML=[...new Set(accessible.map(x=>x.ma).filter(Boolean))].sort((a,b)=>a.localeCompare(b,'ru')).map(m=>`<option value="${esc(m)}"></option>`).join('');
+}
+const F=(label,id,value,type='text',cls='')=>`<label class="${cls}">${label}<input id="${id}" name="${id}" type="${type}" value="${esc(value)}"></label>`;
+const A=(label,id,value)=>`<label class="full">${label}<textarea id="${id}" name="${id}" rows="2">${esc(value)}</textarea></label>`;
+const get=id=>$('#'+id).value.trim();
+function amount(id,label,original){const str=get(id).replace(/\s/g,'').replace(',','.');if(!str)return 0;if(!/^\d+(\.\d{1,2})?$/.test(str)){if(original!=null&&str===String(original))return original;throw new Error(label+': укажите неотрицательную сумму, максимум два знака после запятой.');}const n=Number(str);if(!Number.isFinite(n)||n>1e9)throw new Error(label+': слишком большая сумма.');return Math.round(n*100)/100;}
+function formSnapshot(){return JSON.stringify([...$('#order-form').elements].filter(e=>e.name).map(e=>[e.name,e.type==='checkbox'?e.checked:e.value]));}
+function closeDialog(force=false){if(busy)return;if(!force&&closing&&!closing())return;$('#dlg').close();closing=null;dirtyCheck=null;if(refreshNeeded){refreshNeeded=false;refresh().catch(e=>showError(e.message));}}
+function showDialog(html,kind=''){$('#dlg').onclick=null;$('#dlg').className=kind;$('#dlg').innerHTML=html;$('#dlg').showModal();$('#xc').onclick=()=>closeDialog();}
+// One suggestion per name and phone; shared phones and names remain separate.
+function clientPhone(value){const digits=String(value||'').replace(/\D/g,'');return digits.length===11&&/^[78]/.test(digits)?digits.slice(1):digits;}
+function clientName(value){return String(value||'').trim().toLocaleLowerCase('ru-RU').replace(/ё/g,'е').replace(/\s+/g,' ');}
+function previousClients(records,exclude){
+ const clients=new Map();
+ for(const x of records.filter(x=>x.k!==exclude).slice().sort((a,b)=>String(b.n||'').localeCompare(String(a.n||''))||b.k-a.k)){
+  const name=String(x.c||'').trim(),phone=String(x.t||'').trim(),address=String(x.a||'').trim();
+  const pn=clientPhone(phone),nn=clientName(name);
+  if(pn.length<5&&!/[a-zа-я]/i.test(nn))continue;
+  const key=JSON.stringify([nn,pn]);
+  if(!clients.has(key))clients.set(key,{name,phone,address,pn,nn});
+  else if(!clients.get(key).address&&address)clients.get(key).address=address;
+ }
+ return [...clients.values()];
+}
+function setupClientSuggestions(exclude){
+ const clients=previousClients(visibleOrders(DB),exclude),section=$('#fc').closest('section');
+ section.classList.add('client-section');
+ const panel=document.createElement('div');panel.className='client-suggestions';panel.hidden=true;
+ panel.innerHTML='<div class="client-suggestions-title">Клиенты из прошлых заказов — выберите нужного</div><div id="client-options" role="listbox" aria-label="Найденные клиенты"></div><div class="client-suggestions-more" hidden></div>';
+ section.append(panel);
+ const list=panel.querySelector('#client-options'),more=panel.querySelector('.client-suggestions-more'),inputs=[$('#fc'),$('#ft')];
+ let matches=[],active=-1,field=null;
+ function hide(){panel.hidden=true;active=-1;inputs.forEach(input=>{input.setAttribute('aria-expanded','false');input.removeAttribute('aria-activedescendant');});}
+ function choose(index){
+  const item=matches[index];if(!item||busy||!loaded||!idb)return;
+  $('#fc').value=item.name;$('#ft').value=item.phone;$('#fa').value=item.address;
+  hide();$('#fm').focus();toast('Имя, телефон и адрес клиента заполнены');
+ }
+ function highlight(index){active=index;[...list.children].forEach((option,i)=>{option.setAttribute('aria-selected',String(i===index));option.classList.toggle('selected',i===index);});field.setAttribute('aria-activedescendant','client-option-'+index);list.children[index]?.scrollIntoView({block:'nearest'});}
+ function search(input){
+  field=input;hide();const phone=input.id==='ft';let query=phone?String(input.value).replace(/\D/g,''):clientName(input.value);
+  if(phone&&query.length>=4&&/^[78]/.test(query))query=query.slice(1);
+  if(query.length<(phone?3:2))return;
+  const found=clients.filter(c=>phone?c.pn.includes(query):query.split(' ').every(word=>c.nn.includes(word)));
+  // Exact matches first, then prefixes; recency breaks ties.
+  const rank=c=>{const v=phone?c.pn:c.nn;return v===query?0:v.startsWith(query)?1:2;};
+  found.sort((a,b)=>rank(a)-rank(b));matches=found.slice(0,5);
+  if(!matches.length)return;
+  list.innerHTML=matches.map((c,i)=>`<button type="button" role="option" aria-selected="false" tabindex="-1" id="client-option-${i}" data-client="${i}"><span><strong>${esc(c.name)||'Имя не указано'}</strong><span class="client-phone">${esc(c.phone)||'Телефон не указан'}</span></span>${c.address?`<small>${esc(c.address)}</small>`:''}</button>`).join('');
+  more.hidden=found.length<=5;more.textContent=`Ещё совпадений: ${found.length-5}. Введите больше букв или цифр.`;
+  panel.hidden=false;input.setAttribute('aria-expanded','true');
+ }
+ for(const input of inputs){
+  input.autocomplete='off';input.setAttribute('role','combobox');input.setAttribute('aria-autocomplete','list');input.setAttribute('aria-controls','client-options');input.setAttribute('aria-expanded','false');
+  input.addEventListener('input',()=>search(input));
+  input.addEventListener('keydown',e=>{
+   if(panel.hidden){if(e.key==='ArrowDown'){search(input);if(!panel.hidden){e.preventDefault();highlight(0);}}return;}
+   if(e.key==='Escape'){e.preventDefault();e.stopPropagation();hide();}
+   else if(e.key==='ArrowDown'||e.key==='ArrowUp'){e.preventDefault();highlight((active+(e.key==='ArrowDown'?1:active<0?0:-1)+matches.length)%matches.length);}
+   else if(e.key==='Enter'){e.preventDefault();if(active>=0)choose(active);}
+   else if(e.key==='Tab')hide();
+  });
+  input.addEventListener('blur',hide);
+ }
+ list.addEventListener('pointerdown',e=>e.preventDefault());
+ list.addEventListener('click',e=>{const option=e.target.closest('[data-client]');if(option)choose(Number(option.dataset.client));});
+ $('#order-form').addEventListener('pointerdown',e=>{if(!section.contains(e.target))hide();});
+}
+
+function card(source=null){if(source&&!canReadOrder(source)){showError('Этот заказ вам недоступен.');return;}const original=source?clone(source):null,x=source?clone(source):{k:Math.max(LAST_ORDER_NUMBER,DB.reduce((m,x)=>Math.max(m,x.k),0))+1,s:'Р',n:nowS(),kp:'Аппарат',ws:0,ps:0};const isNew=!source;
+ const guarantees=[...new Set(['','Без гарантии','2 недели','1 месяц','3 месяца','6 месяцев',x.g||''])];
+ showDialog(`<div class="dialog-head"><div><h2 id="dialog-title">${isNew?'Новый заказ':'Заказ № '+x.k}</h2></div><span class="spacer"></span><label class="check card-urgent"><input id="fu" name="fu" form="order-form" type="checkbox" ${x.u?'checked':''}>Срочно</label>${!isNew?`<span class="status" data-s="${x.s}">${names[x.s]}</span>`:''}<button id="xc" class="close" aria-label="Закрыть">×</button></div>
+ <form id="order-form"><div class="dialog-body"><div id="form-error" class="error inline-error hidden" role="alert"></div><div class="dates">${isNew?'Постоянный номер и дата появятся после сохранения.':`<div><span>Принят</span><strong>${esc(fdt(x.n))||'—'}</strong></div><div><span>Готов</span><strong>${esc(fdt(x.r))||'Ещё не отмечен'}</strong></div><div><span>Выдан</span><strong>${esc(fdt(x.o))||'Ещё не выдан'}</strong></div>`}</div>
+ ${!isNew&&((x.r&&x.n&&x.r<x.n)||(x.o&&x.n&&x.o<x.n))?'<div class="warning">В старой записи дата готовности или выдачи раньше даты приёма. Проверьте сведения; исходные даты сохранены.</div>':''}
+ <div class="columns"><div><section class="section"><h3>Клиент</h3><div class="grid client-grid">${F('Имя клиента','fc',x.c)}${F('Телефон','ft',x.t,'tel')}${F('Адрес / организация','fa',x.a)}</div></section>
+ <section class="section"><h3>Техника и неисправность</h3><div class="grid device-grid">${F('Техника / марка / модель'+(isNew?' *':''),'fm',x.m)}${F('Серийный номер','fsn',x.sn)}${F('Срок готовности','fdue',x.d,'date')}${F('Ориентировочная цена, ₽','foc',x.oc)}${A('Неисправность со слов клиента','fi',x.i)}${A('Внешний вид / примечание','fp',x.pr)}${F('Комплектность','fk',x.kp,'text','full')}<div class="full kit" aria-label="Добавить в комплект">${['Аппарат','Шина','Цепь','Кожух','Катушка','Нож','АКБ','Зарядное устройство'].map(t=>`<button type="button" data-kit="${t}">${t}</button>`).join('')}</div></div></section>
+ </div>
+ <div><section class="section"><h3>Работы и детали</h3><div class="grid work-grid">${A('Выполненные работы','fw',x.w)}${F('Работа, ₽','fws',x.ws??'','text','full')}${A('Запчасти и расходники','fpa',x.p)}${F('Запчасти, ₽','fps',x.ps??'','text','full')}</div></section>
+ <div class="totals"><span>Итого за ремонт</span><strong id="tt" class="num"></strong></div>
+ <section class="section"><h3>Исполнитель и статус</h3><div class="grid executor-grid"><label>Мастер<select id="fma" name="fma">${masterOptions(x.ma)}</select></label><label>Гарантия<select id="fg" name="fg">${guarantees.map(g=>`<option value="${esc(g)}" ${g===(x.g||'')?'selected':''}>${esc(g)||'Не указана'}</option>`).join('')}</select></label><label>Статус заказа<select id="fs" name="fs">${TABS.filter(t=>t[0]!=='*').map(([s,label])=>`<option value="${s}" ${s===x.s?'selected':''}>${label}</option>`).join('')}</select></label>${A('Примечание мастера','fmp',x.mp)}</div></section>
+ ${contactSection(x)}</div></div></div>
+ <div class="dialog-actions"><button type="button" id="cancel">Отмена</button>${!isNew?'<button type="button" id="print" title="Акт выполненных работ — печать или сохранение в PDF">Акт работ</button><button type="button" id="receipt" title="Квитанция о приёме техники — печать или сохранение в PDF">Квитанция</button>':''}${x._history?.length?`<details class="history"><summary>История (${x._history.length})</summary><div class="history-list">${x._history.slice().reverse().map(h=>`<p>${esc(fd(h.at))} ${esc(h.at.slice(11))} · ${esc(names[h.from]||h.from)} → ${esc(names[h.to]||h.to)}${h.readyAt?`<br>Предыдущая готовность: ${esc(fdt(h.readyAt))}`:''}${h.issuedAt?`<br>Предыдущая выдача: ${esc(fdt(h.issuedAt))}`:''}</p>`).join('')}</div></details>`:''}<span class="spacer"></span>${!isNew&&x.s!=='В'?`<button type="button" id="ready" ${x.s==='Г'?'disabled title="Заказ уже готов к выдаче"':''}>Готов к выдаче</button>`:''}${!isNew&&x.s!=='В'?'<button type="button" id="issue">Выдать клиенту</button>':''}${isNew?'<button type="button" id="save-receipt">Принять и распечатать</button>':''}<button type="submit" id="save" class="primary">${isNew?'Принять в ремонт':'Сохранить изменения'}</button></div></form>`,'order-dialog');
+ if(isNew)$('#fm').required=true;
+
+ setupClientSuggestions(source?.k);
+ $('#contact-add').onchange=()=>{$('#contact-fields').hidden=!$('#contact-add').checked;};
+ $('#fws').inputMode=$('#fps').inputMode='decimal';
+ const initial=formSnapshot();dirtyCheck=()=>formSnapshot()!==initial;closing=()=>!dirtyCheck()||confirm('В карточке есть несохранённые изменения. Закрыть без сохранения?');
+ $('#cancel').onclick=()=>closeDialog();
+ const calc=()=>{try{$('#tt').textContent=money(amount('fws','Работа',x.ws)+amount('fps','Запчасти',x.ps));}catch{$('#tt').textContent='Проверьте сумму';}};$('#fws').oninput=calc;$('#fps').oninput=calc;calc();
+ const syncKit=()=>{$('#dlg').querySelectorAll('[data-kit]').forEach(b=>{const selected=get('fk').split('/').map(s=>s.trim().toLowerCase()).includes(b.dataset.kit.toLowerCase());b.classList.toggle('picked',selected);b.setAttribute('aria-pressed',String(selected));});};
+ $('#fk').oninput=syncKit;$('#dlg').querySelectorAll('[data-kit]').forEach(b=>b.onclick=()=>{const arr=get('fk').split('/').map(s=>s.trim()).filter(Boolean),part=b.dataset.kit,index=arr.findIndex(t=>t.toLowerCase()===part.toLowerCase());if(index<0)arr.push(part);else arr.splice(index,1);$('#fk').value=arr.join(' / ');syncKit();});syncKit();
+ function gather(){if(isNew&&!get('fm'))throw new Error('Укажите технику, марку или модель.');return gatherContact({...x,c:get('fc'),t:get('ft'),a:get('fa'),m:get('fm'),d:get('fdue'),oc:get('foc'),sn:get('fsn'),i:get('fi'),kp:get('fk'),pr:get('fp'),u:$('#fu').checked,w:get('fw'),p:get('fpa'),ws:amount('fws','Работа',x.ws),ps:amount('fps','Запчасти',x.ps),ma:get('fma'),g:get('fg'),mp:get('fmp'),s:get('fs')});}
+ async function save(targetStatus='',withReceipt=false){if(busy)return;const error=$('#form-error');error.classList.add('hidden');try{if(!idb||!loaded)throw new Error('Сохранение недоступно. Заказы открыты в режиме просмотра.');if(!$('#order-form').reportValidity())return;const draft=gather();if(isNew)draft.n=nowS();if(targetStatus)draft.s=targetStatus;
+ if(draft.s==='В'&&x.s!=='В'&&!confirm(`Выдать заказ клиенту?\n${draft.m||'Техника'}\nСтоимость ремонта: ${money(total(draft))}\nПеред выдачей проверьте расчёт с клиентом.`))return;
+ if(draft.s!==x.s){draft._history=[...(x._history||[]),{at:nowS(),from:x.s,to:draft.s,readyAt:x.r||'',issuedAt:x.o||''}];if(active(draft)){delete draft.r;delete draft.o;}if(draft.s==='Г'){draft.r=nowS();delete draft.o;}if(draft.s==='Б'){delete draft.r;delete draft.o;}if(draft.s==='В')draft.o=nowS();}
+ busy=true;$('#dlg').querySelectorAll('button,input,textarea,select').forEach(e=>e.disabled=true);const saved=await writeOrder(draft,original);busy=false;closing=null;dirtyCheck=null;$('#dlg').close();DB=DB.filter(e=>e.k!==saved.k).concat(saved);cur=saved.s;quick='';$('#q').value='';lim=100;render();markSaved();broadcast();toast(`Заказ № ${saved.k} сохранён`);if(refreshNeeded){refreshNeeded=false;await refresh().catch(e=>showError('Заказ сохранён, но обновить список не удалось. '+e.message));}if(withReceipt)setTimeout(()=>printReceipt(saved,false),0);
+ }catch(e){busy=false;$('#dlg').querySelectorAll('button,input,textarea,select').forEach(el=>el.disabled=false);if($('#ready')&&x.s==='Г')$('#ready').disabled=true;error.textContent=e.message;error.classList.remove('hidden');error.scrollIntoView({block:'center'});}}
+ $('#order-form').onsubmit=e=>{e.preventDefault();save();};if($('#issue'))$('#issue').onclick=()=>save('В');if($('#ready'))$('#ready').onclick=()=>save('Г');
+ if($('#print'))$('#print').onclick=()=>{try{const draft=gather();printOrder(draft,formSnapshot()!==initial);}catch(e){$('#form-error').textContent=e.message;$('#form-error').classList.remove('hidden');}};
+ if($('#receipt'))$('#receipt').onclick=()=>{try{printReceipt(gather(),formSnapshot()!==initial);}catch(e){$('#form-error').textContent=e.message;$('#form-error').classList.remove('hidden');}};if($('#save-receipt'))$('#save-receipt').onclick=()=>save('',true);
+ if(!idb||!loaded||(source&&!canEditOrder(source))){if(source&&!canEditOrder(source)){const note=document.createElement('div');note.className='access-note';note.textContent='Просмотр: менять этот заказ может назначенный мастер или владелец.';$('#order-form').prepend(note);}$('#dlg').querySelectorAll('input,textarea,select,#save,#save-receipt,#issue,#ready,[data-kit]').forEach(e=>e.disabled=true);dirtyCheck=null;closing=null;}if(isNew)$('#fm').focus();
+}
+
+function printOrder(x,unsaved){
+ const ACT_WORKSHOP={name:SETTINGS.executor,details:SETTINGS.details,phone:SETTINGS.phone,address:SETTINGS.address};
+ const blank='________________________________________________';
+ const value=v=>esc(v||blank);
+ const rub=n=>Number(n||0).toLocaleString('ru-RU',{minimumFractionDigits:2,maximumFractionDigits:2});
+ const draft=unsaved||!['Г','В'].includes(x.s);
+ const draftReason=unsaved?'Изменения карточки ещё не сохранены.':'Заказ ещё не отмечен готовым или выданным.';
+ const actDate=fd(x.o||today());
+ $('#print-area').innerHTML=`<article class="work-act">
+ <div class="act-brand">${esc(SETTINGS.printTitle)||'Ремонт и обслуживание техники'}${ACT_WORKSHOP.address?`<br>${esc(ACT_WORKSHOP.address)}`:''}</div>
+ <h1>АКТ ВЫПОЛНЕННЫХ РАБОТ</h1>
+ <div class="act-meta"><strong>№ ${x.k} от ${esc(actDate)}</strong><span>К заказу на ремонт № ${x.k}</span></div>
+ ${draft?`<div class="act-draft"><strong>ЧЕРНОВИК.</strong> ${draftReason}</div>`:''}
+ <section class="act-parties">
+ <p><b>Исполнитель:</b> ${value(ACT_WORKSHOP.name)}</p>
+ ${ACT_WORKSHOP.details?`<p><b>Реквизиты / адрес:</b> ${esc(ACT_WORKSHOP.details)}</p>`:''}
+ <p><b>Телефон исполнителя:</b> ${value(ACT_WORKSHOP.phone)}</p>
+ <p><b>Заказчик (Ф.И.О.):</b> ${value(x.c)}</p>
+ <p><b>Телефон заказчика:</b> ${value(x.t)}</p>
+ ${x.a?`<p><b>Адрес / организация заказчика:</b> ${esc(x.a)}</p>`:''}
+ </section>
+ <section class="act-device">
+ <h2>Техника</h2>
+ <p><b>Наименование / модель:</b> ${value(x.m)}</p>
+ <p><b>Серийный номер:</b> ${value(x.sn)}</p>
+ ${x.i?`<p><b>Заявленная неисправность:</b> ${esc(x.i)}</p>`:''}
+ </section>
+ <h2>Выполненные работы и использованные детали</h2>
+ <table class="act-table"><colgroup><col style="width:9mm"><col><col style="width:32mm"></colgroup>
+ <thead><tr><th>№</th><th>Наименование</th><th class="act-amount">Стоимость, руб.</th></tr></thead>
+ <tbody><tr><td>1</td><td><b>Работы</b><div class="act-description">${value(x.w)}</div></td><td class="act-amount">${rub(x.ws)}</td></tr>
+ <tr><td>2</td><td><b>Запчасти и расходные материалы</b><div class="act-description">${value(x.p)}</div></td><td class="act-amount">${rub(x.ps)}</td></tr></tbody>
+ </table>
+ <div class="act-total"><strong>Общая стоимость работ и деталей:</strong><strong>${rub(total(x))} руб.</strong></div>
+ <div class="act-dates"><span>Принят: ${esc(fdt(x.n))||'-'}</span><span>Готов: ${esc(fdt(x.r))||'-'}</span><span>Выдан: ${esc(fdt(x.o))||'-'}</span></div>
+ ${x.g?`<p><b>Указанный срок гарантии:</b> ${esc(x.g)}</p>`:''}
+ <section class="act-acceptance">
+ <div class="act-signatures"><div><b>Работы сдал</b><div class="act-sign-line"></div><span>Подпись / Ф.И.О. исполнителя</span></div><div><b>Работы принял</b><div class="act-sign-line"></div><span>Подпись / Ф.И.О. заказчика</span></div></div>
+ <p class="act-footnote">Подписи заполняются при приёмке. Данный акт не подтверждает оплату.</p></section>
+ </article>`;
+ window.print();
+}
+function printReceipt(x,unsaved=false){
+ const value=v=>esc(v||'________________________________________________');
+ $('#print-area').innerHTML=`<article class="work-act intake-receipt">
+ <div class="act-brand">${esc(SETTINGS.printTitle)||'Ремонт и обслуживание техники'}${SETTINGS.address?`<br>${esc(SETTINGS.address)}`:''}</div>
+ <h1>КВИТАНЦИЯ О ПРИЁМЕ ТЕХНИКИ</h1>
+ <div class="act-meta"><strong>Заказ № ${esc(x.k)}</strong><span>Принят: ${value(fdt(x.n))}</span></div>
+ ${unsaved?'<div class="act-draft"><strong>ЧЕРНОВИК.</strong> Изменения карточки ещё не сохранены.</div>':''}
+ <section class="act-parties">
+ <p><b>Исполнитель:</b> ${value(SETTINGS.executor)}</p>
+ <p><b>Телефон исполнителя:</b> ${value(SETTINGS.phone)}</p>
+ ${SETTINGS.details?`<p><b>Реквизиты:</b> ${esc(SETTINGS.details)}</p>`:''}
+ <p><b>Заказчик (Ф.И.О.):</b> ${value(x.c)}</p>
+ <p><b>Телефон заказчика:</b> ${value(x.t)}</p>
+ </section>
+ <section class="act-device">
+ <h2>Принятая техника</h2>
+ <p><b>Наименование / модель:</b> ${value(x.m)}</p>
+ <p><b>Серийный номер:</b> ${value(x.sn)}</p>
+ <p><b>Неисправность со слов заказчика:</b> ${value(x.i)}</p>
+ <p><b>Комплектность:</b> ${value(x.kp)}</p>
+ <p><b>Внешний вид / примечание:</b> ${value(x.pr)}</p>
+ </section>
+ <section class="act-acceptance">
+ <p>Техника принята для диагностики и ремонта.</p>
+ <div class="receipt-collection">
+ <h2>Срок получения техники</h2>
+ <p>Заказчик обязуется забрать технику в течение <b>14 календарных дней с даты получения уведомления о готовности</b> по указанному номеру телефона.</p>
+ <p>Если не получается забрать технику в этот срок, пожалуйста, заранее свяжитесь с мастерской и согласуйте другую дату получения.</p>
+ <p>При неявке заказчика за техникой после выполненного ремонта <b>невостребованная техника может быть реализована</b> за разумную цену после предупреждения и не ранее чем через два месяца со дня такого предупреждения, с соблюдением порядка, установленного ст. 738 ГК РФ.</p>
+ </div>
+ <div class="act-signatures"><div><b>Технику сдал</b><div class="act-sign-line"></div><span>Подпись / Ф.И.О. заказчика</span></div><div><b>Технику принял</b><div class="act-sign-line"></div><span>Подпись / Ф.И.О. исполнителя</span></div></div>
+ </section>
+ </article>`;
+ window.print();
+}
+function download(content,name,type){const url=URL.createObjectURL(new Blob([content],{type}));const a=document.createElement('a');a.href=url;a.download=name;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),60000);}
+function stamp(){return nowS().replace(/[: ]/g,'-');}
+function exportJSON(records=DB){requireOwner();download(JSON.stringify({format:'service-center',version:3,exportedAt:nowS(),lastOrderNumber:records.reduce((m,o)=>Math.max(m,o.k),LAST_ORDER_NUMBER),orders:records,settings:SETTINGS},null,2),`Мастерская-копия-${stamp()}.json`,'application/json;charset=utf-8');}
+function exportHTML(records=DB){requireOwner();const doc=document.documentElement.cloneNode(true);doc.querySelector('#settings').hidden=false;doc.querySelector('#backup').hidden=false;doc.querySelector('#settings-seed').textContent=JSON.stringify(SETTINGS).replace(/</g,'\\u003c');doc.querySelector('#seed').textContent=JSON.stringify(records).replace(/</g,'\\u003c');doc.querySelector('#seed').dataset.dataset='copy-'+Date.now()+'-'+Math.random().toString(36).slice(2);doc.querySelector('#seed').dataset.legacy='false';doc.querySelector('#seed').dataset.lastNumber=String(LAST_ORDER_NUMBER);for(const selector of ['#dlg','#tb','#tabs','#stats','#print-area','#notice','#error'])doc.querySelector(selector).innerHTML='';doc.querySelector('#dlg').removeAttribute('open');doc.querySelector('#q').setAttribute('value','');doc.querySelector('#toast').className='hidden';doc.querySelector('#new').disabled=true;doc.querySelector('#note').textContent='Загрузка базы…';download('<!doctype html>\n'+doc.outerHTML,`Мастерская-с-базой-${stamp()}.html`,'text/html;charset=utf-8');}
+function backup(){requireOwner();closing=null;dirtyCheck=null;showDialog(`<div class="dialog-head"><h2 id="dialog-title">Резервные копии</h2><button id="xc" class="close" aria-label="Закрыть">×</button></div><div class="dialog-body"><div id="backup-error" class="error hidden" role="alert"></div><p class="help">В базе <b>${DB.length.toLocaleString('ru-RU')}</b> записей. Заказы хранятся в браузере на этом компьютере. Обычное копирование исходного HTML-файла не переносит новые заказы.</p><div id="backup-state"></div><div class="backup-options"><button id="export-html">Скачать программу вместе с базой<small>Один HTML-файл: откройте его на другом компьютере и продолжайте работу.</small></button><button id="export-json">Скачать резервную копию данных<small>JSON-файл для восстановления. Желательно делать копию после рабочего дня.</small></button></div><hr style="border:0;border-top:1px solid var(--line)"><h3>Восстановить или перенести заказы</h3><p class="help">Поддерживаются копии JSON и HTML с встроенной базой. Перед импортом программа покажет, сколько заказов добавится и сколько совпадёт по номеру.</p><label>Выберите файл копии<input id="import-file" type="file" accept=".json,.html,.htm,application/json,text/html"></label><div id="import-preview"></div></div>`);
+ renderBackupState();
+ const backupPanel=$('#import-preview');let selection=0;const currentBackup=()=>$('#dlg').open&&$('#import-preview')===backupPanel;
+ const problem=e=>{if(!currentBackup())return;const el=$('#backup-error');el.textContent=e.message;el.classList.remove('hidden');};
+ async function current(){if(!idb)return DB;SETTINGS=await readSettings();applySettings();return await getAll(idb,'orders');}
+ $('#export-json').onclick=async()=>{try{exportJSON(await current());await backupRequested('JSON');toast('Копия данных передана браузеру для скачивания');}catch(e){problem(e);}};
+ $('#export-html').onclick=async()=>{try{exportHTML(await current());await backupRequested('HTML');toast('Программа с базой передана браузеру для скачивания');}catch(e){problem(e);}};
+ $('#import-file').disabled=!idb||!loaded;
+ $('#import-file').onchange=async e=>{const token=++selection;const file=e.target.files[0];$('#import-preview').innerHTML='';$('#backup-error').classList.add('hidden');if(!file)return;try{if(file.size>50*1024*1024)throw new Error('Размер копии превышает 50 МБ.');const text=await file.text();if(!currentBackup()||token!==selection)return;let raw,incomingSettings,incomingLast=0;if(text.trim().startsWith('<')){const parsed=document.createElement('template');parsed.innerHTML=text;const seed=parsed.content.querySelector('script#seed[type="application/json"]');if(!seed)throw new Error('В HTML нет встроенной базы заказов.');raw=JSON.parse(seed.textContent);incomingLast=Number(seed.dataset.lastNumber)||0;const settingsSeed=parsed.content.querySelector('script#settings-seed[type="application/json"]');if(settingsSeed)incomingSettings=validateSettings(JSON.parse(settingsSeed.textContent));}else{raw=JSON.parse(text);incomingLast=Number(raw?.lastOrderNumber)||0;if(raw.settings)incomingSettings=validateSettings(raw.settings);}const incoming=validateRecords(raw),existing=await current(),ids=new Set(existing.map(x=>x.k)),overlap=incoming.filter(x=>ids.has(x.k)).length;if(!currentBackup()||token!==selection)return;
+ $('#import-preview').innerHTML=`<div class="warning" style="margin-top:16px">Проверено: ${incoming.length} записей. Новых номеров: ${incoming.length-overlap}. Совпадающих: ${overlap}.</div><label>Как обработать совпадающие номера<select id="import-mode"><option value="keep">Сохранить текущие заказы, добавить только новые</option><option value="update">Обновить совпадающие заказы из копии</option><option value="replace">Полностью заменить заказы из копии</option></select></label><p class="help">В первых двух режимах заказы, которых нет в копии, останутся. Режим «Полностью заменить» удалит их и восстановит статусы из файла. Перед импортом программа передаст браузеру резервную копию текущей базы для скачивания.</p>${incomingSettings?'<label class="check settings-check"><input type="checkbox" id="import-settings">Также восстановить настройки программы и мастеров из копии</label>':''}<button class="primary" id="apply-import">Импортировать</button>`;
+ $('#apply-import').onclick=async()=>{if(busy)return;try{const mode=$('#import-mode').value,update=mode==='update',replace=mode==='replace';if(!confirm(replace?`Полностью заменить базу на ${incoming.length} заказов из файла? Заказы, которых нет в файле, будут удалены. Перед заменой будет скачана резервная копия.`:update?`Обновить совпадающие заказы из выбранного файла и добавить новые? Текущие значения совпадающих заказов будут заменены.`:'Добавить новые номера заказов? Совпадающие заказы останутся без изменений.'))return;busy=true;$('#apply-import').disabled=true;$('#import-file').disabled=true;$('#import-mode').disabled=true;const before=await current();exportJSON(before);const result=await importRecords(incoming,update,before,$('#import-settings')?.checked?incomingSettings:null,SETTINGS,replace,incomingLast);await refresh().catch(e=>showError('Импорт сохранён, но обновить список не удалось. '+e.message));broadcast();busy=false;closeDialog(true);toast(`Импорт завершён: добавлено ${result.added}, обновлено ${result.updated}, удалено ${result.removed}`);}catch(err){busy=false;if($('#apply-import'))$('#apply-import').disabled=false;if($('#import-file'))$('#import-file').disabled=false;if($('#import-mode'))$('#import-mode').disabled=false;problem(err);}};
+ }catch(err){if(token===selection)problem(err);}};
+}
+async function deleteOrders(expected){await authorizeLocal('owner');return new Promise((resolve,reject)=>{
+ const tx=idb.transaction('orders','readwrite'),store=tx.objectStore('orders');let reason='';
+ for(const order of expected){const request=store.get(order.k);request.onsuccess=()=>{if(JSON.stringify(request.result)!==JSON.stringify(order)){reason='Выбранный заказ изменён или удалён в другой вкладке. Откройте список заново и повторите выбор.';tx.abort();return;}store.delete(order.k);};}
+ tx.oncomplete=()=>resolve(expected.length);tx.onerror=tx.onabort=()=>reject(new Error(reason||'Удалить заказы не удалось. Изменения отменены.'));
+});}
+function cleanupMatches(order,{query='',status='*',before=''}){
+ return (status==='*'||order.s===status)&&(!before||(Boolean(order.n)&&order.n.slice(0,10)<before))&&(!query||searchMatch(order,query));
+}
+async function cleanupDialog(){requireOwner();
+ try{await refresh();}catch(e){showError(e.message);return;}
+ const snapshot=clone(DB),selected=new Set();let limit=100;
+ showDialog(`<div class="dialog-head"><h2 id="dialog-title">Удаление заказов</h2><button id="xc" class="close" aria-label="Закрыть">×</button></div><div class="dialog-body"><p class="help">Отметьте ненужные заказы галочками. Удаление убирает их из всех вкладок и истории. Перед удалением программа скачает полную резервную копию базы.</p><div id="cleanup-error" class="error hidden" role="alert"></div><div class="grid"><label class="full">Поиск по номеру, технике, клиенту или телефону<input id="cleanup-query" type="search"></label><label>Статус<select id="cleanup-status">${TABS.map(([s,label])=>`<option value="${s}">${label}</option>`).join('')}</select></label><label>Приняты раньше даты (не включая её)<input id="cleanup-before" type="date"></label></div><p class="help">При смене фильтров выбор сбрасывается.</p><div style="display:flex;gap:8px;flex-wrap:wrap"><button id="cleanup-all">Выбрать все найденные</button><button id="cleanup-clear">Снять выбор</button></div><p id="cleanup-count" aria-live="polite"></p><div class="table-wrap"><table><thead><tr><th>Выбор</th><th>Заказ</th><th>Принят</th><th>Техника</th><th>Клиент</th><th>Статус</th></tr></thead><tbody id="cleanup-rows"></tbody></table></div><button id="cleanup-more">Показать ещё 100</button></div><div class="dialog-actions"><button id="cleanup-close">Закрыть</button><span class="spacer"></span><button class="danger" id="cleanup-delete" disabled>Удалить выбранные</button></div>`);
+ const filtered=()=>snapshot.filter(o=>cleanupMatches(o,{query:$('#cleanup-query').value.trim(),status:$('#cleanup-status').value,before:$('#cleanup-before').value})).sort((a,b)=>b.k-a.k);
+ function count(){const n=filtered().length;$('#cleanup-count').textContent=`Найдено: ${n}. Выбрано: ${selected.size}.`;$('#cleanup-delete').disabled=!selected.size;$('#cleanup-delete').textContent=`Удалить выбранные (${selected.size})`;}
+ function draw(){const rows=filtered();$('#cleanup-rows').innerHTML=rows.slice(0,limit).map(o=>`<tr><td><input style="width:auto" type="checkbox" data-delete-id="${o.k}" aria-label="Выбрать заказ №${o.k}" ${selected.has(o.k)?'checked':''}></td><td>№${o.k}</td><td>${esc(fd(o.n))}</td><td>${esc(o.m||'—')}</td><td>${esc(o.c||'—')}</td><td>${esc(names[o.s])}</td></tr>`).join('')||'<tr><td colspan="6">Заказов по этим условиям нет.</td></tr>';$('#cleanup-more').hidden=rows.length<=limit;count();}
+ for(const id of ['cleanup-query','cleanup-status','cleanup-before'])$('#'+id).oninput=()=>{selected.clear();limit=100;draw();};
+ $('#cleanup-rows').onchange=e=>{if(!e.target.matches('[data-delete-id]'))return;const k=Number(e.target.dataset.deleteId);e.target.checked?selected.add(k):selected.delete(k);count();};
+ $('#cleanup-all').onclick=()=>{filtered().forEach(o=>selected.add(o.k));draw();};
+ $('#cleanup-clear').onclick=()=>{selected.clear();draw();};
+ $('#cleanup-more').onclick=()=>{limit+=100;draw();};
+ $('#cleanup-close').onclick=()=>closeDialog();
+ closing=()=>!selected.size||confirm('Закрыть список? Выбранные заказы ещё не удалены.');dirtyCheck=()=>selected.size>0;
+ $('#cleanup-delete').onclick=async()=>{
+  if(busy||!selected.size)return;const orders=snapshot.filter(o=>selected.has(o.k));
+  if(!confirm(`Полностью удалить выбранные заказы: ${orders.length}? Они исчезнут из всех вкладок. Перед удалением будет скачана резервная копия.`))return;
+  const panel=$('#dlg');busy=true;panel.querySelectorAll('button,input,select').forEach(el=>el.disabled=true);
+  let deleted=false;
+  try{const current=await getAll(idb,'orders'),map=new Map(current.map(o=>[o.k,o]));if(orders.some(o=>JSON.stringify(map.get(o.k))!==JSON.stringify(o)))throw Error('Выбранные заказы изменились. Закройте список и откройте заново.');SETTINGS=await readSettings();exportJSON(current);await deleteOrders(orders);deleted=true;broadcast();try{await refresh();}catch(e){showError('Заказы удалены, но список не обновился. Перезагрузите страницу. '+e.message);}busy=false;closeDialog(true);toast(`Удалено заказов: ${orders.length}`);
+  }catch(e){busy=false;if(!deleted){panel.querySelectorAll('button,input,select').forEach(el=>el.disabled=false);count();$('#cleanup-error').textContent=e.message;$('#cleanup-error').classList.remove('hidden');}}
+ };
+ draw();
+}
+
+let BACKUP_STATE={};
+function readMeta(key){return new Promise((resolve,reject)=>{const r=idb.transaction('meta').objectStore('meta').get(key);r.onsuccess=()=>resolve(r.result);r.onerror=()=>reject(r.error);});}
+function writeBackupState(next,expectedToken=null){return new Promise((resolve,reject)=>{const tx=idb.transaction('meta','readwrite'),store=tx.objectStore('meta');let reason='';const r=store.get('backupState');r.onsuccess=()=>{if(expectedToken&&r.result?.pending?.token!==expectedToken){reason='В другой вкладке создана новая копия. Проверьте её сохранение.';tx.abort();return;}store.put({...r.result,...next},'backupState');};tx.oncomplete=resolve;tx.onerror=tx.onabort=()=>reject(Error(reason||'Не удалось сохранить отметку о резервной копии.'));});}
+function renderBackupReminder(){
+ const panel=$('#backup-reminder');if(!panel)return;const confirmed=BACKUP_STATE.confirmedAt;
+ panel.hidden=!loaded||!isOwner()||!SETTINGS.backupReminder||confirmed?.slice(0,10)===today();
+ if(!panel.hidden)panel.innerHTML=`<span><strong>Сохраните копию на флешку.</strong> ${confirmed?'Последняя подтверждённая копия: '+esc(fdt(confirmed))+'.':'Данные хранятся только на этом компьютере.'}</span> <button id="backup-reminder-open">Сохранить копию</button>`;
+ if($('#backup-reminder-open'))$('#backup-reminder-open').onclick=backup;
+}
+function renderBackupState(){
+ const el=$('#backup-state');if(!el)return;const pending=BACKUP_STATE.pending;
+ el.innerHTML=`<p class="help">${BACKUP_STATE.confirmedAt?'Последняя подтверждённая копия: <b>'+esc(fdt(BACKUP_STATE.confirmedAt))+'</b>.':'Подтверждённых копий пока нет.'}</p>${pending?`<div class="warning">Копия ${esc(pending.kind)} от ${esc(fdt(pending.at))} передана браузеру для скачивания. Проверьте, что файл появился в папке загрузок.<p><button id="confirm-backup">Файл сохранился — подтвердить</button></p></div>`:''}`;
+ if($('#confirm-backup'))$('#confirm-backup').onclick=async()=>{if(busy)return;const button=$('#confirm-backup');button.disabled=true;try{await writeBackupState({confirmedAt:pending.at,pending:null},pending.token);BACKUP_STATE=await readMeta('backupState')||{};renderBackupState();renderBackupReminder();broadcast();toast('Сохранение резервной копии отмечено');}catch(e){button.disabled=false;const error=$('#backup-error');if(error){error.textContent=e.message;error.classList.remove('hidden');}}};
+}
+async function backupRequested(kind){
+ if(!idb)return;await writeBackupState({pending:{at:nowS(),kind,token:Date.now()+'-'+Math.random().toString(36).slice(2)}});BACKUP_STATE=await readMeta('backupState')||{};renderBackupState();renderBackupReminder();broadcast();
+}
+const CONTACT_OUTCOMES=['Дозвонился','Не отвечает','Перезвонить','Другое'];
+function lastContact(order){return order._contacts?.at(-1)||null;}
+function contactSummary(order){const c=lastContact(order);return c?`<div class="muted contact-summary">${esc(fd(c.at))}: ${esc(c.outcome)}${c.next?` · Связаться ${esc(fd(c.next))}`:''}</div>`:'';}
+function contactSection(order){return `<section class="section contact-section"><h3>Связь с клиентом</h3>${order._contacts?.length?`<details><summary>История контактов (${order._contacts.length})</summary><div class="history">${order._contacts.slice().reverse().map(c=>`<p><strong>${esc(fdt(c.at))} · ${esc(c.outcome)}</strong>${c.note?`<br><span style="white-space:pre-wrap">${esc(c.note)}</span>`:''}${c.next?`<br>Связаться: ${esc(fd(c.next))}`:''}</p>`).join('')}</div></details>`:'<p class="help">Контактов пока нет.</p>'}<label class="check" style="margin-top:12px"><input type="checkbox" id="contact-add" name="contact-add">Добавить запись о звонке / разговоре</label><div id="contact-fields" hidden><div class="grid"><label>Результат<select id="contact-outcome" name="contact-outcome">${CONTACT_OUTCOMES.map(s=>`<option>${s}</option>`).join('')}</select></label>${F('Связаться снова (необязательно)','contact-next','','date')}${A('О чём договорились','contact-note','')}</div><p class="help">Запись добавится при сохранении заказа. Для обещанной даты получения используйте заметку; дату выше ставьте, если нужно снова связаться.</p></div></section>`;}
+function gatherContact(order){
+ if(!$('#contact-add')?.checked)return order;const note=get('contact-note'),next=get('contact-next'),outcome=get('contact-outcome');
+ if(note.length>4000)throw Error('Заметка о контакте слишком длинная (максимум 4000 символов).');
+ if(next&&!validDay(next))throw Error('Проверьте дату следующего контакта.');
+ if(!CONTACT_OUTCOMES.includes(outcome))throw Error('Выберите результат контакта.');
+ return {...order,_contacts:[...(order._contacts||[]),{at:nowS(),outcome,note,next}]};
+}
+function validDay(value){if(typeof value!=='string'||!/^\d{4}-\d{2}-\d{2}$/.test(value))return false;const d=new Date(value+'T00:00:00Z');return Number.isFinite(d.getTime())&&d.toISOString().slice(0,10)===value;}
+function calendarDays(since,until=today()){const a=String(since||'').slice(0,10);if(!validDay(a)||!validDay(until))return null;return Math.floor((Date.parse(until+'T00:00:00Z')-Date.parse(a+'T00:00:00Z'))/86400000);}
+function staleInfo(order){
+ if(order.s==='В')return null;const pickup=order.s==='Г'||order.s==='Б';const start=pickup?(order.r||order.n):order.n;const days=calendarDays(start),threshold=pickup?SETTINGS.pickupDays:SETTINGS.repairDays;
+ const contact=lastContact(order),due=!!contact?.next&&contact.next<=today();const stale=days!==null&&days>=threshold;
+ if(!stale&&!due)return null;
+ return {pickup,days,stale,due,start,fallback:pickup&&!order.r,contact};
+}
+async function staleDialog(){
+ try{await refresh();}catch(e){showError(e.message);return;}if($('#dlg').open)return;
+ let limit=100;showDialog(`<div class="dialog-head"><h2 id="dialog-title">Залежавшаяся техника и звонки</h2><button id="xc" class="close" aria-label="Закрыть">×</button></div><div class="dialog-body"><p class="help">В работе — от ${SETTINGS.repairDays} дней с приёма. Готовые и без ремонта — от ${SETTINGS.pickupDays} дней с готовности, а если её дата неизвестна — с приёма. Пороги можно изменить в «Настройки → Журнал». Выданные заказы сюда не попадают.</p><div class="grid"><label>Показать<select id="stale-type"><option value="all">Всё, что требует внимания</option><option value="repair">Долго в работе</option><option value="pickup">Давно ждут получения</option><option value="calls">Пора связаться с клиентом</option></select></label><label>Поиск<input id="stale-query" type="search" placeholder="Номер, техника, клиент или телефон"></label></div><p id="stale-count" class="help" aria-live="polite"></p><div class="table-wrap"><table><thead><tr><th>Заказ</th><th>Техника / статус</th><th>Клиент</th><th>Почему в списке</th><th>Последний контакт</th></tr></thead><tbody id="stale-rows"></tbody></table></div><button id="stale-more">Показать ещё 100</button></div><div class="dialog-actions"><button id="stale-close">Закрыть</button></div>`);
+ function draw(){const type=$('#stale-type').value,q=$('#stale-query').value.trim();const rows=visibleOrders(DB).map(o=>({o,info:staleInfo(o)})).filter(({o,info:i})=>i&&(!q||searchMatch(o,q))&&(type==='all'||type==='calls'&&i.due||type==='repair'&&i.stale&&!i.pickup||type==='pickup'&&i.stale&&i.pickup)).sort((a,b)=>Number(b.info.due)-Number(a.info.due)||(b.info.days??-1)-(a.info.days??-1)||a.o.k-b.o.k);
+ $('#stale-count').textContent=`Найдено: ${rows.length}. Показано: ${Math.min(limit,rows.length)}. Нажмите номер, чтобы открыть карточку и записать звонок.`;
+ $('#stale-rows').innerHTML=rows.slice(0,limit).map(({o,info:i})=>`<tr><td><button class="order-link" data-stale-id="${o.k}">№${o.k}</button></td><td><strong>${esc(o.m||'—')}</strong><div class="muted">${esc(names[o.s])}</div></td><td>${esc(o.c||'Имя не указано')}<div>${esc(o.t||'Телефон не указан')}</div></td><td>${i.stale?`${i.days} дн. ${i.pickup?'ждёт получения':'с приёма'}${i.fallback?'<div class="muted">Дата готовности неизвестна — считаем с приёма</div>':''}`:''}${i.due?`<div class="late">Связаться ${esc(fd(i.contact.next))}</div>`:''}</td><td>${i.contact?`${esc(fdt(i.contact.at))} · ${esc(i.contact.outcome)}<div style="white-space:pre-wrap">${esc(i.contact.note)}</div>`:'Ещё не записан'}</td></tr>`).join('')||'<tr><td colspan="5" class="empty">По этим условиям заказов нет.</td></tr>';$('#stale-more').hidden=rows.length<=limit;}
+ $('#stale-type').onchange=()=>{limit=100;draw();};$('#stale-query').oninput=()=>{limit=100;draw();};$('#stale-more').onclick=()=>{limit+=100;draw();};$('#stale-close').onclick=()=>closeDialog();
+ $('#stale-rows').onclick=e=>{const b=e.target.closest('[data-stale-id]');if(!b)return;const order=DB.find(o=>o.k===Number(b.dataset.staleId));closeDialog(true);if(order)card(order);};draw();
+}
+
+async function importRecords(records,update,expected,incomingSettings=null,expectedSettings=null,replace=false,incomingLast=0){await authorizeLocal('owner');return new Promise((resolve,reject)=>{const tx=idb.transaction(['orders','meta'],'readwrite'),store=tx.objectStore('orders');let added=0,updated=0,removed=0,reason='';const metaStore=tx.objectStore('meta'),high=metaStore.get('lastOrderNumber');high.onsuccess=()=>{const imported=Number.isSafeInteger(incomingLast)&&incomingLast>=0?incomingLast:0;metaStore.put(records.reduce((m,o)=>Math.max(m,o.k),Math.max(Number(high.result)||0,LAST_ORDER_NUMBER,imported)),'lastOrderNumber');};if(incomingSettings){const meta=tx.objectStore('meta'),settingsRequest=meta.get('settings');settingsRequest.onsuccess=()=>{if(JSON.stringify(settingsRequest.result)!==JSON.stringify(expectedSettings)){reason='Настройки изменились в другой вкладке. Повторите импорт.';tx.abort();return;}meta.put(incomingSettings,'settings');};}const req=store.getAll();req.onsuccess=()=>{if(JSON.stringify(req.result)!==JSON.stringify(expected)){reason='База изменилась в другой вкладке. Повторите импорт, чтобы сохранить актуальную копию.';tx.abort();return;}const map=new Map(req.result.map(x=>[x.k,x]));if(replace){const incomingIds=new Set(records.map(x=>x.k));for(const old of req.result){if(!incomingIds.has(old.k)){store.delete(old.k);removed++;}}}records.forEach(x=>{const old=map.get(x.k);if(!old||update||replace){store.put({...x,_id:x._id||old?._id||localUUID(),_rev:(Number(old?._rev)||0)+1,_updated:nowS()});old?updated++:added++;}});};tx.oncomplete=()=>resolve({added,updated,removed});tx.onerror=tx.onabort=()=>reject(new Error(reason||'Импорт не выполнен: ошибка хранилища. Текущая база сохранена.'));});}
+$('#dlg').addEventListener('cancel',e=>{e.preventDefault();closeDialog();});
+window.addEventListener('beforeunload',e=>{if(busy||(dirtyCheck&&dirtyCheck())){e.preventDefault();e.returnValue='';}});
+$('#q').oninput=()=>{lim=100;quick='';render();};$('#scope').onchange=()=>{lim=100;render();};$('#sort').onchange=()=>{lim=100;render();};
+$('#tabs').onclick=e=>{const b=e.target.closest('button[data-s]');if(!b)return;cur=b.dataset.s;quick='';lim=100;render();};
+$('#stats').onclick=e=>{const b=e.target.closest('[data-filter]');if(!b)return;const key=b.dataset.filter;if(key==='repair'||key==='ready'){cur=key==='repair'?'Р':'Г';quick='';}else{quick=quick===key?'':key;cur='*';}$('#q').value='';lim=100;render();};
+$('#tb').onclick=e=>{const b=e.target.closest('[data-k]');if(b)card(DB.find(x=>x.k===Number(b.dataset.k)));};
+$('#more').onclick=e=>{if(e.target.closest('#moreb')){lim+=100;render();}};$('#new').onclick=()=>card();$('#attention').onclick=staleDialog;$('#backup').onclick=backup;$('#settings').onclick=async()=>{try{if(idb)await refresh();settingsDialog();}catch(e){showError(e.message);}};
+document.addEventListener('keydown',e=>{if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='s'&&$('#dlg').open&&$('#order-form')){e.preventDefault();$('#order-form').requestSubmit();}if(e.key==='/'&&!$('#dlg').open&&!['INPUT','TEXTAREA','SELECT'].includes(document.activeElement.tagName)){e.preventDefault();$('#q').focus();}});
+async function start(){const seed=validateRecords(JSON.parse($('#seed').textContent));DB=seed;cur=SETTINGS.defaultTab;applySettings();updateClock();render();try{idb=await openDB('scm3-'+dataset);let initial=seed,legacyUsed=false,legacy;
+ if($('#seed').dataset.legacy==='true'){try{legacy=await openDB('scm2',true);if(legacy&&legacy.objectStoreNames.contains('o')){const old=await getAll(legacy,'o');if(old.length){initial=validateRecords(old);legacyUsed=true;}}}catch{ $('#notice').textContent='Старую локальную базу прочитать не удалось. Использованы записи из приложенного файла. Если в старой программе есть более новые заказы, сначала перенесите их.';}finally{legacy?.close();}}
+ const inserted=await initialize(initial);await ensureOrderIds();await refresh();cur=SETTINGS.defaultTab;render();loaded=true;$('#new').disabled=false;$('#attention').disabled=false;renderBackupReminder();updateAccessControls();if(inserted&&legacyUsed)$('#notice').textContent='Заказы перенесены из старой локальной базы этого браузера. Старая база сохранена отдельно.';
+ try{if('BroadcastChannel' in window){channel=new BroadcastChannel('scm3-'+dataset);channel.onmessage=()=>{if($('#dlg').open){refreshNeeded=true;toast('База обновлена в другой вкладке. Открытая карточка проверяется при сохранении.');}else refresh().catch(e=>showError(e.message));};}}catch{channel=null;}
+ }catch(e){loaded=false;idb=null;$('#new').disabled=true;showError('Локальное сохранение недоступно. Режим просмотра: новые изменения не принимаются. Откройте файл в обычном окне Edge или Chrome. '+e.message);$('#storage').textContent='Просмотр встроенной базы · Для сохранения требуется доступное хранилище браузера.';}
+}
+// Local access is a workflow control on a trusted device. A shared server must
+// re-check all permissions; this file does not provide server-side security.
+// Single-computer edition: all actions are available without an account.
+function isOwner(){return true;}
+function canReadOrder(){return true;}
+function canEditOrder(){return true;}
+function visibleOrders(rows=DB){return rows;}
+function requireOwner(){}
+async function authorizeLocal(){return {role:'owner'};}
+function updateAccessControls(){}
+
+async function ensureOrderIds(){return new Promise((resolve,reject)=>{const tx=idb.transaction('orders','readwrite'),store=tx.objectStore('orders'),req=store.openCursor();req.onsuccess=()=>{const c=req.result;if(!c)return;if(!c.value._id)c.update({...c.value,_id:localUUID()});c.continue();};tx.oncomplete=resolve;tx.onerror=tx.onabort=()=>reject(Error('Не удалось подготовить идентификаторы заказов.'));});}
+
+start().catch(e=>showError('Не удалось открыть локальную базу. '+e.message));
+setInterval(()=>{if(loaded&&!$('#dlg').open){updateClock();render();renderBackupReminder();}},60000);
+
+setInterval(updateClock,1000);
+document.addEventListener('visibilitychange',()=>{if(!document.hidden)updateClock();});
+
+window.addEventListener('focus',()=>{if(loaded&&!channel){if($('#dlg').open)refreshNeeded=true;else refresh().catch(e=>showError(e.message));}});
+</script></body></html>

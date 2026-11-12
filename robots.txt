@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Disallow: /downloads/
+Sitemap: https://vanssk8hai.github.io/service-workshop-site/sitemap.xml
