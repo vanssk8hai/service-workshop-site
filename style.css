@@ -18,7 +18,7 @@ button{font:inherit;cursor:pointer}
 a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid #9c6b22;outline-offset:4px;border-radius:4px}
 .skip{position:absolute;left:16px;top:-100px;background:#fff;padding:10px 14px;border-radius:8px;z-index:10}
 .skip:focus{top:12px}
-.wrap{max-width:1120px;margin:0 auto;padding-left:32px;padding-right:32px}
+.wrap{max-width:1240px;margin:0 auto;padding-left:32px;padding-right:32px}
 
 /* Header */
 .header{display:flex;align-items:center;justify-content:space-between;gap:24px;padding-top:22px;padding-bottom:22px;border-bottom:1px solid var(--line)}
@@ -35,7 +35,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid #9c
 .guide-back:hover{color:var(--green)}
 
 /* Hero */
-.hero{display:grid;grid-template-columns:1.03fr 1fr;gap:56px;align-items:center;padding-top:72px;padding-bottom:64px}
+.hero{display:grid;grid-template-columns:1fr 1.06fr;gap:52px;align-items:center;padding-top:72px;padding-bottom:64px}
 .eyebrow{margin:0 0 16px;font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
 h1{font-size:clamp(40px,4.8vw,60px);line-height:1.05;letter-spacing:-.035em;font-weight:600;margin:0 0 20px}
 h1 em{font-style:normal;color:#6b8570}
@@ -50,7 +50,7 @@ h1 em{font-style:normal;color:#6b8570}
 .preview-top{display:flex;align-items:center;gap:8px;padding:12px 16px;border-bottom:1px solid var(--line);font-size:12px;color:var(--muted)}
 .dot{width:7px;height:7px;border-radius:50%;background:#7da07f;flex:none}
 .preview-label{margin-left:auto}
-.preview img{display:block;width:100%;aspect-ratio:1024/430;object-fit:cover;object-position:top}
+.preview img{display:block;width:100%;aspect-ratio:1024/480;object-fit:cover;object-position:top}
 .preview figcaption{display:flex;justify-content:space-between;gap:10px;padding:11px 16px;border-top:1px solid var(--line);font-size:12px;color:var(--muted)}
 
 /* Features */
@@ -66,11 +66,14 @@ h1 em{font-style:normal;color:#6b8570}
 .shots-head{display:flex;align-items:baseline;justify-content:space-between;gap:18px;margin-bottom:24px}
 .shots h2{margin:0;font-size:clamp(24px,2.5vw,32px);font-weight:600;letter-spacing:-.025em}
 .shots-head p{margin:0;font-size:13px;color:var(--muted)}
-.shots-grid{display:grid;grid-template-columns:1.45fr 1fr;gap:20px;align-items:start}
+.shots-grid{display:grid;gap:30px}
 .shot{margin:0;min-width:0}
 .shot a{display:block;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--soft)}
-.shot img{display:block;width:100%;height:330px;object-fit:cover;object-position:top}
-.shot-card img{height:330px}
+.shot img{display:block;width:100%;height:auto}
+.shot-wide img{aspect-ratio:1024/470;object-fit:cover;object-position:top}
+.shot-pair{display:grid;grid-template-columns:1.5fr 1fr;gap:36px;align-items:center}
+.shot-note h3{margin:0 0 6px;font-size:21px;font-weight:600;letter-spacing:-.02em}
+.shot-note p{margin:0;font-size:14px;line-height:1.7;color:var(--muted);max-width:34ch}
 .shot figcaption{margin-top:10px;font-size:13px;line-height:1.6;color:var(--muted)}
 .shot figcaption strong{display:block;margin-bottom:1px;font-size:13px;color:var(--ink);font-weight:600}
 
@@ -110,9 +113,8 @@ h1 em{font-style:normal;color:#6b8570}
 @media(max-width:900px){
   .hero{grid-template-columns:1fr;gap:36px;padding-top:56px;padding-bottom:48px}
   .preview{max-width:620px}
-  .shots-grid{grid-template-columns:1fr;gap:28px}
-  .shot img{height:auto}
-  .shots-grid .shot:first-child img{aspect-ratio:1024/560;object-fit:cover;object-position:top}
+  .shot-pair{grid-template-columns:1fr;gap:24px}
+  .shot-note p{max-width:none}
   .start-inner{grid-template-columns:1fr;gap:32px}
 }
 @media(max-width:700px){
@@ -130,7 +132,7 @@ h1 em{font-style:normal;color:#6b8570}
   .features article:last-child{border-bottom:0}
   .shots{padding-bottom:48px}
   .shots-head{flex-direction:column;align-items:flex-start;gap:2px}
-  .shot img{height:auto}
+  .shot-wide img{aspect-ratio:1024/560}
   .start{padding-bottom:48px}
   .start-inner{padding-top:32px}
   .guide-hero{padding-top:32px}
